@@ -1,0 +1,29 @@
+.container {
+  margin: 20px;
+}
+
+.title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list-item {
+  margin-bottom: 5px;
+}
+
+.link-style {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+  /* Añade cualquier estilo adicional que desees */
+}
+
+.item{
+  text-decoration: none;
+}
