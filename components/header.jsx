@@ -8,18 +8,16 @@ const Header = () => {
   const [crypto, setCrypto] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
-  const { data, setData, data2, setData2 } = useStore();
+  const { data, data2 } = useStore();
   const [selectedResult, setSelectedResult] = useState(null);
 
-  // Handle local search
-  const handleLocalSearch = () => {
+  const handleLocalSearch = (searchTerm = crypto) => {
     const result = data?.filter((item) =>
-      item.name.toLowerCase().includes(crypto.toLowerCase())
+      item.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setSearchResult(result);
   };
 
-  // Handle input change
   const handleInputChange = (e) => {
     const value = e.target.value;
     setCrypto(value);
@@ -34,15 +32,12 @@ const Header = () => {
     }
   };
 
-  // Handle suggestion click
   const handleSuggestionClick = (name) => {
     setCrypto(name);
-    setSelectedResult(name);
     setSuggestions([]);
-    handleLocalSearch();
+    handleLocalSearch(name);
   };
 
-  // Handle enter key press
   const handleEnterPress = (event) => {
     if (event.key === "Enter") {
       handleLocalSearch();
@@ -75,14 +70,17 @@ const Header = () => {
             ))}
           </ul>
         )}
-        <button onClick={handleLocalSearch} className="button-buscar">
+        <button onClick={() => handleLocalSearch()} className="button-buscar">
           Buscar
         </button>
 
-        {/* Conditional rendering of search results */}
-        {searchResult.length > 0 && selectedResult && (
-          // Render only the first search result (assuming you want the top match)
-          <Card key={searchResult[0].id} searchResult={searchResult[0]} crypto={crypto} />
+        {/* Conditional rendering of the search results */}
+        {searchResult.length > 0 && searchResult.length < 2 ? (
+          searchResult.map((result) => (
+            <Card key={result.id} searchResult={result} crypto={crypto} />
+          ))
+        ) : (
+          <p>No results found</p>
         )}
       </div>
 
