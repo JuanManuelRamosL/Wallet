@@ -9,6 +9,7 @@ import { useStore } from "../../store";
 import { useEffect, useState } from "react";
 import Walets from "../../components/walets";
 import Link from "next/link";
+import Nav from "../../components/nav";
 export default function Home() {
   const { data, setData, setData2, setData3, data3, setData4, data4 } =
     useStore();
@@ -67,10 +68,12 @@ export default function Home() {
   console.log(data4);
   return (
     <>
+      <Nav></Nav>
       <Header></Header>
 
       <Table data={data}></Table>
-      <Walets></Walets><br />
+      <Walets></Walets>
+      <br />
       <Link href="/exchange">Otras Wallets</Link>
     </>
   );
