@@ -1,40 +1,43 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import "./Table.css";
+import React from "react";
 import Link from "next/link";
+import "./Table.css";
 
-const Table = () => {
-  const [data, setData] = useState([]);
-  const API = "http://localhost:3100/map";
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(API);
-        setData(response.data.data);
-      } catch (error) {
-        console.error("Error al obtener los datos:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+const Table = ({ data }) => {
+  // Verifica si data es un array
+  if (!Array.isArray(data)) {
+    return <p>No hay datos disponibles</p>;
+  }
   console.log(data);
   return (
     <div className="container">
       <h2 className="title">Lista de Criptomonedas:</h2>
-      <ul className="list">
-        {data.map((item) => (
-          <li key={item.id}>
-            <Link href={`/detalle/${encodeURIComponent(item.name)}`}>
-              <p className="link-style">
-                <strong className="item">{item.name}</strong> ({item.symbol}) -
-                Rank: {item.rank}
-              </p>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <div className="card-container">
+        {data.map((item) => {
+          const fecha = new Date(item.first_historical_data);
+          const fecha2 = new Date(item.last_historical_data);
+          const options = {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+          };
+          const fechaFormateada = fecha.toLocaleDateString("es-ES", options);
+          const fechaFormateada2 = fecha2.toLocaleDateString("es-ES", options);
+
+          return (
+            <div key={item.id} className="card">
+              <Link href={`/detalle/${encodeURIComponent(item.name)}`}>
+                <div className="card-content">
+                  <strong className="item">{item.name}</strong> ({item.symbol})
+                  - Rank: {item.rank}
+                </div>
+              </Link>
+              <p>Primer dato de cotización: {fechaFormateada}</p>
+              <p>Ultimo dato de cotización: {fechaFormateada2}</p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

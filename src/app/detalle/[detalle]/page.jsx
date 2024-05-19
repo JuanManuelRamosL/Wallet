@@ -34,12 +34,14 @@ export default function Detalle(name) {
           {Object.values(data).map((item) => (
             <div key={item.id} className="detalle-container">
               <h1>{item.name}</h1>
+              <p>{item.cmc_rank}</p>
               <img src={item.logo} alt={item.id} />
               <p>Symbol: {item.symbol}</p>
               <p>{item.description}</p>
               <p>
                 sitio web: <a href={item.urls.website}>{item.name}.com</a>
               </p>
+              <a href={item.urls.technical_doc}>Documentacion</a>
             </div>
           ))}
         </div>
@@ -51,7 +53,8 @@ export default function Detalle(name) {
         <div>
           {Object.values(dataP).map((item) => (
             <div key={item.id} className="detalle-container">
-              <h1>Precio actual :{item.quote.USD.price.toFixed(2)}$</h1>
+              <h1>Precio actual :{item.quote.USD.price.toFixed(2)} $</h1>
+              <h1>Volumen 24hs :{item.quote.USD.volume_24h.toFixed(2)} $</h1>
             </div>
           ))}
         </div>
