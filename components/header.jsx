@@ -2,13 +2,16 @@
 import React, { useState } from "react";
 import Card from "./card";
 import { useStore } from "../store";
+import "./header.css";
 
 const Header = () => {
   const [crypto, setCrypto] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
   const { data, setData, data2, setData2 } = useStore();
-  // Función para manejar la búsqueda local
+  const [selectedResult, setSelectedResult] = useState(null);
+
+  // Handle local search
   const handleLocalSearch = () => {
     const result = data?.filter((item) =>
       item.name.toLowerCase().includes(crypto.toLowerCase())
@@ -16,7 +19,7 @@ const Header = () => {
     setSearchResult(result);
   };
 
-  // Función para manejar el cambio en el input
+  // Handle input change
   const handleInputChange = (e) => {
     const value = e.target.value;
     setCrypto(value);
@@ -31,14 +34,15 @@ const Header = () => {
     }
   };
 
-  // Función para manejar la selección de una sugerencia
+  // Handle suggestion click
   const handleSuggestionClick = (name) => {
     setCrypto(name);
+    setSelectedResult(name);
     setSuggestions([]);
     handleLocalSearch();
   };
 
-  // Función para manejar el enter key
+  // Handle enter key press
   const handleEnterPress = (event) => {
     if (event.key === "Enter") {
       handleLocalSearch();
@@ -46,35 +50,44 @@ const Header = () => {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={crypto}
-        onChange={handleInputChange}
-        placeholder="Enter crypto name"
-        onKeyDown={handleEnterPress}
-      />
-      {suggestions.length > 0 && (
-        <ul>
-          {suggestions.map((suggestion) => (
-            <li
-              key={suggestion.id}
-              onClick={() => handleSuggestionClick(suggestion.name)}
-            >
-              {suggestion.name}
-            </li>
-          ))}
-        </ul>
-      )}
-      <button onClick={handleLocalSearch}>Local Search</button>
-      {searchResult.length > 0 ? (
-        searchResult.map((result) => (
-          <Card key={result.id} searchResult={result} crypto={crypto} />
-        ))
-      ) : (
-        <p>No results found</p>
-      )}
-    </div>
+    <header>
+      {/* Header content */}
+      <div className="container-buscador">
+        <input
+          type="text"
+          value={crypto}
+          onChange={handleInputChange}
+          placeholder="Buscar Cripto"
+          onKeyDown={handleEnterPress}
+          className="buscador"
+        />
+        {/* Suggestion list */}
+        {suggestions.length > 0 && (
+          <ul className="container-results-prev">
+            {suggestions.map((suggestion) => (
+              <li
+                key={suggestion.id}
+                onClick={() => handleSuggestionClick(suggestion.name)}
+                className="li-results-prev"
+              >
+                {suggestion.name}
+              </li>
+            ))}
+          </ul>
+        )}
+        <button onClick={handleLocalSearch} className="button-buscar">
+          Buscar
+        </button>
+
+        {/* Conditional rendering of search results */}
+        {searchResult.length > 0 && selectedResult && (
+          // Render only the first search result (assuming you want the top match)
+          <Card key={searchResult[0].id} searchResult={searchResult[0]} crypto={crypto} />
+        )}
+      </div>
+
+      {/* Other header content */}
+    </header>
   );
 };
 

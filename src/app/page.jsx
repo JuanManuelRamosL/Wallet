@@ -70,7 +70,7 @@ export default function Home() {
       <Header></Header>
 
       <Table data={data}></Table>
-      <Walets></Walets>
+      <Walets></Walets><br />
       <Link href="/exchange">Otras Wallets</Link>
     </>
   );

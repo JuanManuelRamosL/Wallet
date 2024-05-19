@@ -1,6 +1,7 @@
 "use client";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import './card.css';
 
 const Card = ({ searchResult, crypto }) => {
   const [price, setPrice] = useState(null);
@@ -38,20 +39,20 @@ const Card = ({ searchResult, crypto }) => {
     };
     fetchData();
   }, [searchResult, crypto]); // Ejecutar el efecto cuando searchResult o crypto cambien
-
+  console.log(searchResult);
   return (
-    <div>
-      <h2>{searchResult ? searchResult.name : crypto}</h2>
+    <div className="container-results">
+      <h2 className="name-cripto">{searchResult ? searchResult.name : crypto}</h2>
       {searchResult && (
         <>
           <p>{searchResult.description}</p>
-          <p>Symbol: {searchResult.symbol}</p>
+          <p className="details-cripto">Symbol: {searchResult.symbol}</p>
         </>
       )}
-      <p>
+      <p className="details-cripto">
         Price:{" "}
         {price && id ? price[id]?.quote?.USD.price.toFixed(2) : "Loading..."}
-      </p>
+     $ </p>
       {/* Mostrar el precio si está disponible, de lo contrario, mostrar "Loading..." */}
     </div>
   );

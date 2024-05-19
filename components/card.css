@@ -1,0 +1,22 @@
+.container-results {
+	position: relative;
+	font-size: 17px;
+	font-weight: bold;
+	width: 200px;
+	top: 65px;
+	left: 5px;
+	border-radius: 10px;
+	background: linear-gradient(to right,rgb(137, 104, 255),rgb(175, 152, 255));
+}
+
+.name-cripto {
+	font-size: 25px;
+	color: #000;
+	text-align: center;
+}
+
+.details-cripto {
+	font-size: 18px;
+	text-align: center;
+	color: #000;
+}
