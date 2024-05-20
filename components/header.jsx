@@ -80,7 +80,7 @@ const Header = () => {
             <Card key={result.id} searchResult={result} crypto={crypto} />
           ))
         ) : (
-          <p>No results found</p>
+          <p className="not-found"> No Hay Resultados</p>
         )}
       </div>
 

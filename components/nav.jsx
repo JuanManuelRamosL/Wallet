@@ -4,6 +4,13 @@ import "./nav.css";
 import Link from "next/link";
 
 const Nav = ({ isLoggedIn, userProfilePicture }) => {
+  const handleSmoothScroll = (event, targetId) => {
+    event.preventDefault();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <header className="nav-header">
       <div className="nav-container">
@@ -18,11 +25,27 @@ const Nav = ({ isLoggedIn, userProfilePicture }) => {
 
         {/* Center: Navigation Links */}
         <div className="nav-center">
-          <a className="nav-link">Sobre Nosotros</a>
-
-          <a className="nav-link">Cryptos</a>
-
-          <a className="nav-link">Exchanges</a>
+          <a
+            href="#sobre-nosotros"
+            className="nav-link"
+            onClick={(e) => handleSmoothScroll(e, "sobre-nosotros")}
+          >
+            Sobre Nosotros
+          </a>
+          <a
+            href="#cryptos"
+            className="nav-link"
+            onClick={(e) => handleSmoothScroll(e, "cryptos")}
+          >
+            Cryptos
+          </a>
+          <a
+            href="#exchange"
+            className="nav-link"
+            onClick={(e) => handleSmoothScroll(e, "exchange")}
+          >
+            Exchanges
+          </a>
         </div>
 
         {/* Right: User Profile or Login Button */}

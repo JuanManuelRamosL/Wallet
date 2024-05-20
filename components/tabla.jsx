@@ -10,7 +10,7 @@ const Table = ({ data }) => {
   }
   console.log(data);
   return (
-    <div className="container">
+    <div className="container" id="cryptos">
       <h2 className="title">Lista de Criptomonedas:</h2>
       <div className="container-cards">
         <div className="card-container">
@@ -46,7 +46,10 @@ const Table = ({ data }) => {
                   <b className="fechas">{fechaFormateada2}</b>
                 </p>
                 <div className="container-detalles">
-                  <a href={`/detalle/${encodeURIComponent(item.name)}`} className="btn">
+                  <a
+                    href={`/detalle/${encodeURIComponent(item.name)}`}
+                    className="btn"
+                  >
                     Ver más detalles
                   </a>
                 </div>

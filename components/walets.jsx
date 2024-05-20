@@ -9,7 +9,7 @@ const Walets = () => {
   console.log(data3);
   return (
     <>
-      <div>walets:{data3.binance?.name}</div>;
+      <div id="exchange">walets:{data3.binance?.name}</div>;
       <img src={data3.binance?.logo} alt="" />
       <p>{data3.binance?.description}</p>
       <a href="https://www.binance.com/">sitio web</a>

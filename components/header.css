@@ -79,7 +79,7 @@ header {
 .container-results-prev {
 	width: 100px;
 	position: absolute;
-	top: 30px;
+	top: 100px;
 	border-radius: 10px;
 	background: linear-gradient(to right,rgb(137, 104, 255),rgb(175, 152, 255));
 
@@ -91,4 +91,8 @@ header {
 	position: relative;
 	left: -40px;
 	cursor: pointer;
+}
+
+.not-found{
+margin-left: 15px;
 }
