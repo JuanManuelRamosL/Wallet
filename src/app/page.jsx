@@ -75,6 +75,8 @@ export default function Home() {
       <Walets></Walets>
       <br />
       <Link href="/exchange">Otras Wallets</Link>
+      <a href="/api/auth/login">Login</a>
+      <a href="/api/auth/login">logout</a>
     </>
   );
 }

@@ -2,8 +2,15 @@
 import React, { useState } from "react";
 import "./nav.css";
 import Link from "next/link";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
-const Nav = ({ isLoggedIn, userProfilePicture }) => {
+const Nav = () => {
+  const { error, isLoading, user } = useUser();
+
+  if (user) {
+    console.log(user);
+  }
+
   const handleSmoothScroll = (event, targetId) => {
     event.preventDefault();
     const targetElement = document.getElementById(targetId);
@@ -11,6 +18,7 @@ const Nav = ({ isLoggedIn, userProfilePicture }) => {
       targetElement.scrollIntoView({ behavior: "smooth" });
     }
   };
+
   return (
     <header className="nav-header">
       <div className="nav-container">
@@ -50,14 +58,19 @@ const Nav = ({ isLoggedIn, userProfilePicture }) => {
 
         {/* Right: User Profile or Login Button */}
         <div className="nav-right">
-          {isLoggedIn ? (
-            <img
-              src={userProfilePicture}
-              alt="User Profile"
-              className="user-profile-picture"
-            />
+          {user ? (
+            <Link href="/usuario">
+              <img
+                src={user.picture}
+                alt="User Profile"
+                className="user-profile-picture"
+              />
+            </Link>
           ) : (
-            <button className="login-button">Login</button>
+            <button className="login-button">
+              {" "}
+              <a href="/api/auth/login">Login</a>
+            </button>
           )}
         </div>
       </div>
