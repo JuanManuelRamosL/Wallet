@@ -7,7 +7,7 @@ import axios from "axios";
 import { useStore } from "../../store";
 
 import { useEffect, useState } from "react";
-import Walets from "../../components/walets";
+import Walets from "../../components/wallets";
 import Link from "next/link";
 import Nav from "../../components/nav";
 export default function Home() {

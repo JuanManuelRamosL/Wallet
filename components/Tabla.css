@@ -5,7 +5,7 @@
 }
 
 .title {
-  font-size: 24px;
+  font-size: 32px;
   color: #f4f4f4;
   margin-bottom: 10px;
   text-align: center;
@@ -152,11 +152,6 @@
 
 .container {
   margin-top: 170px;
-}
-
-.title {
-  font-size: 24px;
-  margin-bottom: 10px;
 }
 
 .card-container {

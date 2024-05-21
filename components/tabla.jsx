@@ -7,7 +7,7 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 const SkeletonLoader = () => {
   return (
     <div className="container" id="cryptos">
-      <h2 className="title">Lista de Criptomonedas:</h2>
+      <h1 className="title">Lista de Criptomonedas:</h1>
       <div className="container-cards">
         <div className="card-container">
           {[...Array(5)].map((_, index) => (

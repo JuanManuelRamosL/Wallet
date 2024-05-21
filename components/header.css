@@ -20,7 +20,6 @@ header {
 	justify-content: space-between;
 	align-items: center;
 	padding: 8px;
-	/* background-color: red; */
 }
 
 .buscador {
@@ -36,21 +35,25 @@ header {
 	color: #fff;
 }
 
+.buscador::placeholder {
+	color: #fff;
+}
+
 .button-buscar {
 	font-size: 15px;
 	font-weight: bold;
 	width: 80px;
-	height: 30px;
+	height: 40px;
 	border-radius: 8px;
 	border: none;
 	background: #673de6;
+	color: #fff;
 	cursor: pointer;
 	transition: 0.3s;
 }
 
 .button-buscar:hover {
 	background: #5025d1;
-	color: #fff;
 }
 
 .container-results-prev {

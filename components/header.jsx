@@ -44,6 +44,16 @@ const Header = () => {
     }
   };
 
+  const handleFocus = (e) => {
+    e.target.placeholder = "";
+  };
+
+  const handleBlur = (e) => {
+    if (!crypto) {
+      e.target.placeholder = "Buscar Cripto";
+    }
+  };
+
   return (
     <header>
       {/* Header content */}
@@ -54,6 +64,8 @@ const Header = () => {
           onChange={handleInputChange}
           placeholder="Buscar Cripto"
           onKeyDown={handleEnterPress}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           className="buscador"
         />
         {/* Suggestion list */}

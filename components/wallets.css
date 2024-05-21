@@ -1,3 +1,13 @@
+.title-wallets {
+	color: #fff;
+	text-align: center;
+}
+
+.container-wallet {
+	/* background-color: rgba(255, 255, 255, 0.2); */
+	margin-top: 150px;
+}
+
 .description-wallets {
 	font-size: 18px;
 	font-weight: bold;
@@ -5,10 +15,50 @@
 }
 
 .container-description-wallets {
-	width: 100%;
+	width: 50%;
 	text-align: center;
+	margin-left: 25%;
 }
 
-.exchange {
+.texto-description-wallets {
+	text-align: center;
+	line-height: 30px;
+}
+
+.container-name-image-wallet {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+
+.name-wallet {
+	font-size: 30px;
+	font-weight: bold;
 	color: #fff;
+}
+
+.img-wallet {
+	width: 50px;
+	height: 50px;
+}
+
+.container-datos-wallet {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 80px;
+	gap: 20px;
+}
+
+.datos-wallet, .exchange {
+	font-size: 20px;
+	font-weight: bold;
+	transition: 0.2s;
+	color: #fff;
+}
+
+.datos-wallet:hover, .exchange:hover {
+  color: #673de6;
+  cursor: pointer;
 }
