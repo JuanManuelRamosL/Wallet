@@ -146,15 +146,12 @@
   color: #fff;
 }
 
-
-
-
 .fechas {
   color: #fff;
 }
 
 .container {
-  margin-top: 110px;
+  margin-top: 170px;
 }
 
 .title {
@@ -168,7 +165,7 @@
 }
 
 .card {
-  width: calc(33.33% - 20px); /* Ancho de la tarjeta */
+  width: calc(33.33% - 20px);
   height: 130px;
   margin: 10px;
   padding: 10px;

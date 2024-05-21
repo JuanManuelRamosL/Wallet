@@ -68,13 +68,13 @@ export default function Home() {
   console.log(data4);
   return (
     <>
-      <Nav></Nav>
-      <Header></Header>
+        <Nav></Nav>
+        <Header></Header>
 
-      <Table data={data}></Table>
-      <Walets></Walets>
-      <br />
-      <Link href="/exchange">Otras Wallets</Link>
+        <Table data={data}></Table>
+        <Walets></Walets>
+        <br />
+        <Link href="/exchange">Otras Wallets</Link>
     </>
   );
 }

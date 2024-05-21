@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Card from "./card";
 import { useStore } from "../store";
+import "./wallets.css";
 
 const Walets = () => {
   const { data3, setData3 } = useStore();
@@ -9,13 +10,18 @@ const Walets = () => {
   console.log(data3);
   return (
     <>
-      <div id="exchange">walets:{data3.binance?.name}</div>;
+      <div id="exchange" className="exchange">
+        {data3.binance?.name}
+      </div>
+      ;
       <img src={data3.binance?.logo} alt="" />
-      <p>{data3.binance?.description}</p>
+      <div className="container-description-wallets">
+        <p className="description-wallets">{data3.binance?.description}</p>
+      </div>
       <a href="https://www.binance.com/">sitio web</a>
-      <div>walets: {data3[exchangeName]?.name}</div>
+      <div className="exchange">{data3[exchangeName]?.name}</div>
       <img src={data3[exchangeName]?.logo} alt="" />
-      <p>{data3[exchangeName]?.description}</p>
+      <p className="description-wallets">{data3[exchangeName]?.description}</p>
       <a
         href={data3[exchangeName]?.urls.website[0]}
         target="_blank"
