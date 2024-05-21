@@ -1,11 +1,10 @@
 .nav-header {
-    background-color: #333;
-    padding: 10px 20px;
+  width: 100%;
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
- 
   }
   
   .nav-container {
@@ -35,9 +34,15 @@
   }
   
   .nav-link {
-    color: white;
-    text-decoration: none;
     font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+
+  .nav-link:hover {
+    color: #673de6;
   }
   
   .nav-right {
