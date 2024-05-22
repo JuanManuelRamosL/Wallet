@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import './card.css';
+import "./card.css";
 
 const Card = ({ searchResult, crypto }) => {
   const [price, setPrice] = useState(null);
@@ -42,7 +42,9 @@ const Card = ({ searchResult, crypto }) => {
   console.log(searchResult);
   return (
     <div className="container-results">
-      <h2 className="name-cripto">{searchResult ? searchResult.name : crypto}</h2>
+      <h2 className="name-cripto">
+        {searchResult ? searchResult.name : crypto}
+      </h2>
       {searchResult && (
         <>
           <p>{searchResult.description}</p>
@@ -50,9 +52,9 @@ const Card = ({ searchResult, crypto }) => {
         </>
       )}
       <p className="details-cripto">
-        Price:{" "}
+        Precio:USD{" "}
         {price && id ? price[id]?.quote?.USD.price.toFixed(2) : "Loading..."}
-     $ </p>
+      </p>
       {/* Mostrar el precio si está disponible, de lo contrario, mostrar "Loading..." */}
     </div>
   );

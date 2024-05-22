@@ -1,0 +1,21 @@
+.container-footer-wallets {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+
+.links-footer-wallets {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+	transition: 0.2s;
+}
+
+.links-footer-wallets:hover {
+  color: #673de6;
+  cursor: pointer;
+}

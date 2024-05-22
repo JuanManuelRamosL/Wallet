@@ -30,7 +30,7 @@
 .item {
   font-size: 17px;
   text-decoration: none;
-  color: #000;
+  color: #fff;
   margin-right: 5px;
 }
 
@@ -166,7 +166,7 @@
   padding: 10px;
   border: 1px solid #673de6;
   /* background-color: #1a1a1a; */
-  background: linear-gradient(to right,rgb(137, 104, 255),rgb(175, 152, 255));
+  background: linear-gradient(to right,rgb(0, 0, 0),rgb(33, 25, 60));
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: 0.3s;

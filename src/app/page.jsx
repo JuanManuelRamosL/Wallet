@@ -1,6 +1,5 @@
 "use client";
-import Image from "next/image";
-import styles from "./page.module.css";
+import "./page-module.css";
 import Header from "../../components/header";
 import Table from "../../components/tabla";
 import axios from "axios";
@@ -74,9 +73,11 @@ export default function Home() {
       <Table data={data}></Table>
       <Walets></Walets>
       <br />
-      <Link href="/exchange">Otras Wallets</Link>
-      <a href="/api/auth/login">Login</a>
-      <a href="/api/auth/login">logout</a>
+      <div className="container-footer-wallets">
+        <Link href="/exchange" className="links-footer-wallets">Otras Wallets</Link>
+        <a href="/api/auth/login" className="links-footer-wallets">Login</a>
+        <a href="/api/auth/login" className="links-footer-wallets">Logout</a>
+      </div>
     </>
   );
 }
