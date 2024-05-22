@@ -1,3 +1,4 @@
+/* nav.css */
 a {
   color: #fff;
 }
@@ -37,9 +38,7 @@ a {
   margin-top: 5px;
   padding: 10px;
   border-radius: 7px;
-  filter: drop-shadow(
-    0 0 10px rgba(103, 61, 230, 0.7)
-  );
+  filter: drop-shadow(0 0 10px rgba(103, 61, 230, 0.7));
 }
 
 .nav-center {

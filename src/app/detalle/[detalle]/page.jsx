@@ -73,6 +73,13 @@ export default function Detalle(name) {
                   </h3>
                 </div>
                 <p className="position-ranking">Posición en el Ranking #1</p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 384 512"
+                  className="icon-favorito"
+                >
+                  <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z" />
+                </svg>
               </>
             ))}
           </div>
@@ -96,13 +103,23 @@ export default function Detalle(name) {
                       />
                     </div>
                     <p className="texto-description-moneda">
-                    Bitcoin (BTC) es una criptomoneda lanzada en 2010, generada a través de la minería. Tiene una oferta actual de 19,701,412 y su último precio conocido es de 69,738.03109532 USD, con un aumento del 2.20% en las últimas 24 horas. Se negocia en 11,056 mercados activos con un volumen de comercio de $59,267,993,809.96 en el mismo período. Más información en bitcoin.org.
+                      Bitcoin (BTC) es una criptomoneda lanzada en 2010,
+                      generada a través de la minería. Tiene una oferta actual
+                      de 19,701,412 y su último precio conocido es de
+                      69,738.03109532 USD, con un aumento del 2.20% en las
+                      últimas 24 horas. Se negocia en 11,056 mercados activos
+                      con un volumen de comercio de $59,267,993,809.96 en el
+                      mismo período. Más información en bitcoin.org.
                     </p>
 
                     <div className="container-links-moneda">
                       <p className="sitio-web-moneda">
                         Sitio web:{" "}
-                        <a href={item.urls.website} target="_blank" className="link-web">
+                        <a
+                          href={item.urls.website}
+                          target="_blank"
+                          className="link-web"
+                        >
                           <u>{item.name}.com</u>
                         </a>
                       </p>

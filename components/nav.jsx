@@ -46,6 +46,13 @@ const Nav = () => {
 
         {/* Center: Navigation Links */}
         <div className="nav-center">
+        <a
+            href="#cryptos"
+            className="nav-link"
+            onClick={(e) => handleSmoothScroll(e, "cryptos")}
+          >
+            Inicio
+          </a>
           <a
             href="#cryptos"
             className="nav-link"
@@ -59,6 +66,13 @@ const Nav = () => {
             onClick={(e) => handleSmoothScroll(e, "exchange")}
           >
             Exchanges
+          </a>
+          <a
+            href="#sobre-nosotros"
+            className="nav-link"
+            onClick={(e) => handleSmoothScroll(e, "sobre-nosotros")}
+          >
+            Favoritos
           </a>
           <a
             href="#sobre-nosotros"
