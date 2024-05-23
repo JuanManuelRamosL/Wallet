@@ -31,10 +31,10 @@ const Nav = () => {
       targetElement.scrollIntoView({ behavior: "smooth" });
     }
   };
-
+  console.log(user);
   return (
     <nav className="nav-header">
-      <div className={`nav-container ${scrolled ? 'scrolled' : ''}`}>
+      <div className={`nav-container ${scrolled ? "scrolled" : ""}`}>
         {/* Left: App Logo */}
         <div className="nav-left">
           <img
@@ -46,13 +46,9 @@ const Nav = () => {
 
         {/* Center: Navigation Links */}
         <div className="nav-center">
-        <a
-            href="#cryptos"
-            className="nav-link"
-            onClick={(e) => handleSmoothScroll(e, "cryptos")}
-          >
-            Inicio
-          </a>
+          <Link href="/" legacyBehavior>
+            <a className="nav-link">Inicio</a>
+          </Link>
           <a
             href="#cryptos"
             className="nav-link"
@@ -67,13 +63,9 @@ const Nav = () => {
           >
             Exchanges
           </a>
-          <a
-            href="#sobre-nosotros"
-            className="nav-link"
-            onClick={(e) => handleSmoothScroll(e, "sobre-nosotros")}
-          >
-            Favoritos
-          </a>
+          <Link href="/favs" legacyBehavior>
+            <a className="nav-link">Favoritos</a>
+          </Link>
           <a
             href="#sobre-nosotros"
             className="nav-link"

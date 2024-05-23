@@ -9,9 +9,11 @@ import { useEffect, useState } from "react";
 import Walets from "../../components/wallets";
 import Link from "next/link";
 import Nav from "../../components/nav";
+import { useUser } from "@auth0/nextjs-auth0/client";
 export default function Home() {
   const { data, setData, setData2, setData3, data3, setData4, data4 } =
     useStore();
+  const { error, isLoading, user } = useUser();
   const API = "http://localhost:3100/map";
   useEffect(() => {
     const fetchData = async () => {
@@ -64,6 +66,27 @@ export default function Home() {
     };
     fetchData4();
   }, []);
+
+  const userAPI = "http://localhost:3100/users";
+  useEffect(() => {
+    if (user) {
+      const createUser = async () => {
+        try {
+          const response = await axios.post(userAPI, {
+            firstName: user.nickname,
+            lastName: "",
+            email: user.email,
+            favs: [], // Puedes ajustar esto según tu aplicación
+          });
+          console.log("Usuario creado:", response.data);
+        } catch (error) {
+          console.error("Error al crear el usuario:", error);
+        }
+      };
+
+      createUser();
+    }
+  }, [user]);
   console.log(data4);
   return (
     <>
@@ -74,9 +97,15 @@ export default function Home() {
       <Walets></Walets>
       <br />
       <div className="container-footer-wallets">
-        <Link href="/exchange" className="links-footer-wallets">Otras Wallets</Link>
-        <a href="/api/auth/login" className="links-footer-wallets">Login</a>
-        <a href="/api/auth/login" className="links-footer-wallets">Logout</a>
+        <Link href="/exchange" className="links-footer-wallets">
+          Otras Wallets
+        </Link>
+        <a href="/api/auth/login" className="links-footer-wallets">
+          Login
+        </a>
+        <a href="/api/auth/login" className="links-footer-wallets">
+          Logout
+        </a>
       </div>
     </>
   );
