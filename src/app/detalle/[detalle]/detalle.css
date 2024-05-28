@@ -1,11 +1,9 @@
-/* detalle.css */
 a {
     text-decoration: none;
     color: #fff;
 }
 
 .container-general-detalle {
-    align-items: center;
     color: #fff;
 }
 
@@ -173,10 +171,3 @@ a {
 .link-web:hover {
     color: #673de6;
 }
-
-.container-header {
-    margin-top: -32px;
-}
-
-
-/* RESPONSIVE */

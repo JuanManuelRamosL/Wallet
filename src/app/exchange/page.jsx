@@ -2,6 +2,8 @@
 import React from "react";
 import { useStore } from "../../../store";
 import "./estilos.css";
+import Nav from "../../../components/nav";
+import NavSecundario from "../../../components/nav-secundario";
 
 const Exchange = () => {
   const { data4 } = useStore();
@@ -11,20 +13,21 @@ const Exchange = () => {
   }
   console.log(data4);
   return (
-    <div className="container">
-      <h1>Exchanges</h1>
-      <div className="cards">
+    <div>
+      <NavSecundario></NavSecundario>
+      <h1 className="title-exchanges">Exchanges</h1>
+      <div className="container-cards-exchange">
         {data4.map((exchange) => (
-          <div key={exchange.id} className="card">
-            <h2>{exchange.name}</h2>
-            <p>Nombre: {exchange.slug}</p>
-            <p>Activo: {exchange.is_active ? "Sí" : "No"}</p>
-            <p>Redistribuible: {exchange.is_redistributable ? "Sí" : "No"}</p>
-            <p>
+          <div key={exchange.id} className="cards-exchanges">
+            <h2 className="name-exchange"><u className="underline">{exchange.name}</u></h2>
+            <p className="info-exchanges">Nombre: {exchange.slug}</p>
+            <p className="info-exchanges">Activo: {exchange.is_active ? "Sí" : "No"}</p>
+            <p className="info-exchanges">Redistribuible: {exchange.is_redistributable ? "Sí" : "No"}</p>
+            <p className="info-exchanges">
               Primera fecha histórica:{" "}
               {new Date(exchange.first_historical_data).toLocaleDateString()}
             </p>
-            <p>
+            <p className="info-exchanges">
               Última fecha histórica:{" "}
               {new Date(exchange.last_historical_data).toLocaleDateString()}
             </p>

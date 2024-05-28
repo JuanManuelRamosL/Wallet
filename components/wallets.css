@@ -16,7 +16,7 @@
 
 .container-description-wallets {
 	width: 50%;
-	text-align: center;
+	text-align: start;
 	margin-left: 25%;
 }
 
@@ -24,7 +24,6 @@
 	font-size: 17px;
 	font-weight: bold;
 	color: #fff;
-	text-align: center;
 	line-height: 30px;
 }
 
@@ -37,14 +36,29 @@
 }
 
 .name-wallet {
-	font-size: 30px;
+	font-size: 40px;
 	font-weight: bold;
-	color: #fff;
+	color: #e2b80d;
+}
+
+.name-wallet-2 {
+	font-size: 40px;
+	font-weight: bold;
+	color: #0052ff;
 }
 
 .img-wallet {
 	width: 50px;
 	height: 50px;
+}
+
+.logo-binance {
+    height: 40px;
+	color: #e2b80d;
+}
+
+.logo-coinbase {
+	height: 40px;
 }
 
 .container-datos-wallet {
@@ -55,14 +69,54 @@
 	gap: 20px;
 }
 
-.datos-wallet, .exchange {
-	font-size: 20px;
+.datos-wallet {
+	font-size: 25px;
 	font-weight: bold;
 	transition: 0.2s;
 	color: #fff;
 }
 
-.datos-wallet:hover, .exchange:hover {
+.datos-wallet:hover {
   color: #673de6;
   cursor: pointer;
+}
+
+
+.container-izq {
+	width: 800px;
+	margin-top: 30%;
+	margin-left: -45%;
+	padding: 10px;
+	border-radius: 10px;
+	background: linear-gradient(to right,rgb(0, 0, 0),rgb(33, 25, 60));
+}
+
+.title-izq {
+	font-size: 35px;
+	text-align: start;
+}
+
+.texto-izq {
+	font-size: 20px;
+	line-height: 35px;
+}
+
+.container-der {
+	width: 800px;
+	margin-top: 50%;
+	margin-left: 15%;
+	padding: 10px;
+	border-radius: 10px;
+	background: linear-gradient(to right,rgb(0, 0, 0),rgb(33, 25, 60));
+}
+
+.title-der {
+	font-size: 35px;
+	text-align: end;
+}
+
+.texto-der {
+	font-size: 20px;
+	line-height: 35px;
+	text-align: end;
 }

@@ -4,8 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import "./detalle.css";
 import { useStore } from "../../../../store";
-import Header from "../../../../components/Nav";
-import Nav from "../../../../components/Nav";
+import NavSecundario from "../../../../components/nav-secundario";
 export default function Detalle(name) {
   // Aquí puedes usar el parámetro name para recuperar los detalles relevantes del elemento
   const crypto = name.params.detalle;
@@ -34,7 +33,7 @@ export default function Detalle(name) {
   console.log(dataP);
   return (
     <div className="container-detalle">
-      <div className="container-header"></div>
+      <NavSecundario></NavSecundario>
       <div className="container-general-detalle">
         {Object.keys(dataP).length > 0 ? (
           <div className="container-izq">
