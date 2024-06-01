@@ -64,7 +64,7 @@ export default function Favs() {
       {favs.length > 0 ? (
         <ul>
           {favs.split(", ").map((fav, index) => (
-            <li className="card" key={index}>
+            <li className="card2" key={index}>
               {fav}
               <div className="container-detalles">
                 <a className="btn">Ver más detalles</a>
