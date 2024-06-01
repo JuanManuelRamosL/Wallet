@@ -5,16 +5,20 @@ import { useEffect, useState } from "react";
 import "./detalle.css";
 import { useStore } from "../../../../store";
 import NavSecundario from "../../../../components/nav-secundario";
+import { useUser } from "@auth0/nextjs-auth0/client";
+
 export default function Detalle(name) {
   // Aquí puedes usar el parámetro name para recuperar los detalles relevantes del elemento
   const crypto = name.params.detalle;
-
+  const { id } = useStore();
+  const { error, isLoading, user } = useUser();
+  console.log(id);
+  const [isfav, setIsFav] = useState(false);
   const [dataL, setDataL] = useState({});
   const [dataP, setDataP] = useState({});
   const API = `http://localhost:3100/info`;
   const APIP = `http://localhost:3100/price`;
-  const { data, setData, setData2, setData3, data3, setData4, data4 } =
-    useStore();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -31,6 +35,50 @@ export default function Detalle(name) {
   }, [crypto]);
   console.log(dataL);
   console.log(dataP);
+
+  const handleAddFav = async () => {
+    try {
+      if (!isfav) {
+        const favNames = Object.values(dataL).map((item) => item.name);
+        const favsString =
+          favNames.length === 1 ? favNames[0] : favNames.join(", ");
+
+        const response = await axios.put(
+          `http://localhost:3100/users/${user.email}/favs`,
+          {
+            favs: favsString,
+          }
+        );
+        console.log("Favorito añadido:", response.data);
+        setIsFav(true);
+      }
+    } catch (error) {
+      console.error("Error al añadir el favorito:", error);
+    }
+  };
+
+  const hendledelete = async () => {
+    try {
+      if (isfav) {
+        const favNames = Object.values(dataL).map((item) => item.name);
+        const favsString =
+          favNames.length === 1 ? favNames[0] : favNames.join(", ");
+
+        const response = await axios.delete(
+          `http://localhost:3100/users/${user.email}/favss`,
+          {
+            data: { element: favsString },
+          }
+        );
+        console.log("Favorito eliminado:", response.data);
+        setIsFav(false);
+        alert("crypto eliminada");
+      }
+    } catch (error) {
+      console.error("Error al eliminar el favorito:", error);
+    }
+  };
+
   return (
     <div className="container-detalle">
       <NavSecundario></NavSecundario>
@@ -71,13 +119,18 @@ export default function Detalle(name) {
                   </h3>
                 </div>
                 <p className="position-ranking">Posición en el Ranking #1</p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 384 512"
-                  className="icon-favorito"
-                >
-                  <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z" />
-                </svg>
+                {!isfav ? (
+                  <svg
+                    onClick={handleAddFav}
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 384 512"
+                    className="icon-favorito"
+                  >
+                    <path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z" />
+                  </svg>
+                ) : (
+                  <button onClick={hendledelete}>eliminar</button>
+                )}
               </>
             ))}
           </div>
@@ -101,13 +154,7 @@ export default function Detalle(name) {
                       />
                     </div>
                     <p className="texto-description-moneda">
-                      Bitcoin (BTC) es una criptomoneda lanzada en 2010,
-                      generada a través de la minería. Tiene una oferta actual
-                      de 19,701,412 y su último precio conocido es de
-                      69,738.03109532 USD, con un aumento del 2.20% en las
-                      últimas 24 horas. Se negocia en 11,056 mercados activos
-                      con un volumen de comercio de $59,267,993,809.96 en el
-                      mismo período. Más información en bitcoin.org.
+                      {item.description}
                     </p>
 
                     <div className="container-links-moneda">
@@ -138,3 +185,5 @@ export default function Detalle(name) {
     </div>
   );
 }
+
+// http://localhost:3100/users/hmusic.proyecto@gmail.com/favss delete

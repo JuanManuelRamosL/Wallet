@@ -11,8 +11,17 @@ import Link from "next/link";
 import Nav from "../../components/nav";
 import { useUser } from "@auth0/nextjs-auth0/client";
 export default function Home() {
-  const { data, setData, setData2, setData3, data3, setData4, data4 } =
-    useStore();
+  const {
+    data,
+    setData,
+    setData2,
+    setData3,
+    data3,
+    setData4,
+    data4,
+    setId,
+    id,
+  } = useStore();
   const { error, isLoading, user } = useUser();
   const API = "http://localhost:3100/map";
   useEffect(() => {
@@ -73,12 +82,13 @@ export default function Home() {
       const createUser = async () => {
         try {
           const response = await axios.post(userAPI, {
-            firstName: user.nickname,
-            lastName: "",
+            first_name: user.nickname,
+            last_name: user.given_name,
             email: user.email,
             favs: [], // Puedes ajustar esto según tu aplicación
           });
-          console.log("Usuario creado:", response.data);
+          console.log("Usuario", response.data.id);
+          setId(response.data.id);
         } catch (error) {
           console.error("Error al crear el usuario:", error);
         }
@@ -87,7 +97,7 @@ export default function Home() {
       createUser();
     }
   }, [user]);
-  console.log(data4);
+  console.log(id); //no puedo guardar el id aun
   return (
     <>
       <Nav></Nav>
