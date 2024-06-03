@@ -23,7 +23,7 @@ export default function Home() {
     id,
   } = useStore();
   const { error, isLoading, user } = useUser();
-  const API = "http://localhost:3100/map";
+  const API = "https://wallet-back.vercel.app/map";
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -36,7 +36,7 @@ export default function Home() {
 
     fetchData();
   }, []);
-  const API2 = "http://localhost:3100/map2";
+  const API2 = "https://wallet-back.vercel.app/map2";
   useEffect(() => {
     const fetchData2 = async () => {
       try {
@@ -50,7 +50,7 @@ export default function Home() {
     fetchData2();
   }, []);
 
-  const API3 = "http://localhost:3100/exchange";
+  const API3 = "https://wallet-back.vercel.app/exchange";
   useEffect(() => {
     const fetchData3 = async () => {
       try {
@@ -63,7 +63,7 @@ export default function Home() {
     fetchData3();
   }, []);
 
-  const API4 = "http://localhost:3100/map3";
+  const API4 = "https://wallet-back.vercel.app/map3";
   useEffect(() => {
     const fetchData4 = async () => {
       try {
@@ -76,7 +76,7 @@ export default function Home() {
     fetchData4();
   }, []);
 
-  const userAPI = "http://localhost:3100/users";
+  const userAPI = "https://wallet-back.vercel.app/users";
   useEffect(() => {
     if (user) {
       const createUser = async () => {

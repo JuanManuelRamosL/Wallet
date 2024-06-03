@@ -16,8 +16,8 @@ export default function Detalle(name) {
   const [isfav, setIsFav] = useState(false);
   const [dataL, setDataL] = useState({});
   const [dataP, setDataP] = useState({});
-  const API = `http://localhost:3100/info`;
-  const APIP = `http://localhost:3100/price`;
+  const API = `https://wallet-back.vercel.app/info`;
+  const APIP = `https://wallet-back.vercel.app/price`;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,7 +44,7 @@ export default function Detalle(name) {
           favNames.length === 1 ? favNames[0] : favNames.join(", ");
 
         const response = await axios.put(
-          `http://localhost:3100/users/${user.email}/favs`,
+          `https://wallet-back.vercel.app/users/${user.email}/favs`,
           {
             favs: favsString,
           }
@@ -65,7 +65,7 @@ export default function Detalle(name) {
           favNames.length === 1 ? favNames[0] : favNames.join(", ");
 
         const response = await axios.delete(
-          `http://localhost:3100/users/${user.email}/favss`,
+          `https://wallet-back.vercel.app/users/${user.email}/favss`,
           {
             data: { element: favsString },
           }

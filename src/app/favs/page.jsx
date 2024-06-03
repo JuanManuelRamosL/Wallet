@@ -3,6 +3,7 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 import { useEffect, useState } from "react";
 import axios from "axios"; // Asegúrate de importar Axios
 import "./favs.css";
+import NavSecundario from "../../../components/nav-secundario";
 
 export default function Favs() {
   const [favs, setFavs] = useState([]);
@@ -12,7 +13,7 @@ export default function Favs() {
   useEffect(() => {
     if (user) {
       const email = user.email;
-      const APIF = `http://localhost:3100/users/${email}/favsList`;
+      const APIF = `https://wallet-back.vercel.app/users/${email}/favsList`;
 
       const fetchData = async () => {
         try {
@@ -30,7 +31,7 @@ export default function Favs() {
   const handleDelete = async (item) => {
     try {
       const response = await axios.delete(
-        `http://localhost:3100/users/${user.email}/favss`,
+        `https://wallet-back.vercel.app/users/${user.email}/favss`,
         {
           data: { element: item },
         }
@@ -60,6 +61,7 @@ export default function Favs() {
 
   return (
     <div>
+      <NavSecundario />
       <h1 className="titulo">Favoritos</h1>
       {favs.length > 0 ? (
         <ul>

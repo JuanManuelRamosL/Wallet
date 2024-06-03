@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import "./usuario.css";
+import NavSecundario from "../../../components/nav-secundario";
 const Usuario = () => {
   const { error, isLoading, user } = useUser();
 
@@ -11,6 +12,7 @@ const Usuario = () => {
 
   return (
     <>
+      <NavSecundario />
       <div class="cardd">
         <div class="infos">
           <div class="image">
@@ -37,7 +39,6 @@ const Usuario = () => {
           </a>
         </button>
       </div>
-      <a href="/">volver</a>
     </>
   );
 };

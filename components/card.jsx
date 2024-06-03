@@ -13,7 +13,7 @@ const Card = ({ searchResult, crypto }) => {
         // Si hay una búsqueda de criptomoneda realizada, obtenemos el precio usando el nombre de la criptomoneda de searchResult
         if (searchResult) {
           const priceResponse = await axios.post(
-            "http://localhost:3100/price",
+            "https://wallet-back.vercel.app/price",
             {
               name: searchResult.name,
             }
@@ -25,7 +25,7 @@ const Card = ({ searchResult, crypto }) => {
         else {
           console.log(crypto);
           const priceResponse = await axios.post(
-            "http://localhost:3100/price",
+            "https://wallet-back.vercel.app/price",
             {
               name: crypto.toLowerCase(),
             }
