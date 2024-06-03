@@ -102,7 +102,7 @@ export default function Detalle(name) {
               </label>
             </div>
             {Object.values(dataP).map((item) => (
-              <>
+              <div>
                 <div className="container-grafico">
                   <img
                     src="../img-user/img-grafico.jpeg"
@@ -142,7 +142,7 @@ export default function Detalle(name) {
                     <path d="M 37 48 C 36.824219 48 36.652344 47.953125 36.496094 47.863281 L 25 41.15625 L 13.503906 47.863281 C 13.195313 48.042969 12.8125 48.046875 12.503906 47.867188 C 12.191406 47.6875 12 47.359375 12 47 L 12 3 C 12 2.449219 12.449219 2 13 2 L 37 2 C 37.554688 2 38 2.449219 38 3 L 38 47 C 38 47.359375 37.808594 47.6875 37.496094 47.867188 C 37.34375 47.957031 37.171875 48 37 48 Z"></path>
                   </svg>
                 )}
-              </>
+              </div>
             ))}
           </div>
         ) : (
@@ -152,7 +152,7 @@ export default function Detalle(name) {
         {Object.keys(dataL).length > 0 ? (
           <div>
             {Object.values(dataL).map((item) => (
-              <div className="container-der">
+              <div key={item.id} className="container-der">
                 <div key={item.id} className="detalle-container">
                   <div className="detalle-container">
                     <div className="container-name-image-moneda">
