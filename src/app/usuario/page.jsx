@@ -17,13 +17,13 @@ const Usuario = () => {
         <div class="infos">
           <div class="image">
             {" "}
-            <img src={user.picture} alt="User Profile" />
+            <img src={user?.picture} alt="User Profile" />
           </div>
           <div class="info">
             <div>
-              <h1 className="name">{user.nickname}</h1>
+              <h1 className="name">{user?.nickname}</h1>
 
-              <p class="function">{user.email}</p>
+              <p class="function">{user?.email}</p>
             </div>
             <div class="stats">
               <p class="flex flex-col">
