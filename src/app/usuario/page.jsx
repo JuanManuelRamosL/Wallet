@@ -22,15 +22,15 @@ const Usuario = () => {
   return (
     <>
       <NavSecundario />
-      {/*   <div className="cardd">
+      <div className="cardd">
         <div className="infos">
           <div className="image">
-            <img src={user.picture} alt="User Profile" />
+            <img src={user?.picture} alt="User Profile" />
           </div>
           <div className="info">
             <div>
-              <h1 className="name">{user.nickname}</h1>
-              <p className="function">{user.email}</p>
+              <h1 className="name">{user?.nickname}</h1>
+              <p className="function">{user?.email}</p>
             </div>
             <div className="stats">
               <p className="flex flex-col">
@@ -45,7 +45,7 @@ const Usuario = () => {
             Log Out
           </a>
         </button>
-      </div> */}
+      </div>
     </>
   );
 };
