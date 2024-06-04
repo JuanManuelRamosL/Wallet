@@ -1,4 +1,3 @@
-"use client";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -7,12 +6,10 @@ import { useStore } from "../../../../store";
 import NavSecundario from "../../../../components/nav-secundario";
 import { useUser } from "@auth0/nextjs-auth0/client";
 
-export default function Detalle(name) {
-  // Aquí puedes usar el parámetro name para recuperar los detalles relevantes del elemento
-  const crypto = name.params.detalle;
+export default function Detalle({ params }) {
+  const crypto = params.detalle;
   const { id } = useStore();
   const { error, isLoading, user } = useUser();
-  console.log(id);
   const [isfav, setIsFav] = useState(false);
   const [dataL, setDataL] = useState({});
   const [dataP, setDataP] = useState({});
@@ -33,8 +30,6 @@ export default function Detalle(name) {
 
     fetchData();
   }, [crypto]);
-  console.log(dataL);
-  console.log(dataP);
 
   const handleAddFav = async () => {
     try {
@@ -49,7 +44,6 @@ export default function Detalle(name) {
             favs: favsString,
           }
         );
-        console.log("Favorito añadido:", response.data);
         setIsFav(true);
       }
     } catch (error) {
@@ -57,7 +51,7 @@ export default function Detalle(name) {
     }
   };
 
-  const hendledelete = async () => {
+  const handleDelete = async () => {
     try {
       if (isfav) {
         const favNames = Object.values(dataL).map((item) => item.name);
@@ -70,9 +64,8 @@ export default function Detalle(name) {
             data: { element: favsString },
           }
         );
-        console.log("Favorito eliminado:", response.data);
         setIsFav(false);
-        alert("crypto eliminada");
+        alert("Crypto eliminada");
       }
     } catch (error) {
       console.error("Error al eliminar el favorito:", error);
@@ -81,13 +74,13 @@ export default function Detalle(name) {
 
   return (
     <div className="container-detalle">
-      <NavSecundario></NavSecundario>
+      <NavSecundario />
       <div className="container-general-detalle">
         {Object.keys(dataP).length > 0 ? (
           <div className="container-izq">
             <div className="container-options-cotizacion">
               <label className="label-cotizacion">
-                Cotizacion a:
+                Cotización a:
                 <select name="" id="" className="select-options-cotizacion">
                   <option value="" className="options-time-cotizacion">
                     24hs
@@ -130,7 +123,7 @@ export default function Detalle(name) {
                   </svg>
                 ) : (
                   <svg
-                    onClick={hendledelete}
+                    onClick={handleDelete}
                     xmlns="http://www.w3.org/2000/svg"
                     x="0px"
                     y="0px"
@@ -153,37 +146,27 @@ export default function Detalle(name) {
           <div>
             {Object.values(dataL).map((item) => (
               <div key={item.id} className="container-der">
-                <div key={item.id} className="detalle-container">
-                  <div className="detalle-container">
-                    <div className="container-name-image-moneda">
-                      <h1 className="name-moneda">{item.name}</h1>
-                      <p className="symbol-moneda">{item.symbol}</p>
-                      <img
-                        src={item.logo}
-                        alt={item.id}
-                        className="img-moneda"
-                      />
-                    </div>
-                    <p className="texto-description-moneda">
-                      {item.description}
-                    </p>
-
-                    <div className="container-links-moneda">
-                      <p className="sitio-web-moneda">
-                        Sitio web:{" "}
-                        <a
-                          href={item.urls.website}
-                          target="_blank"
-                          className="link-web"
-                        >
-                          <u>{item.name}.com</u>
-                        </a>
-                      </p>
-                      <a href={item.urls.technical_doc}>
-                        <u className="txt-documentacion">Documentación</u>
+                <div className="detalle-container">
+                  <div className="container-name-image-moneda">
+                    <h1 className="name-moneda">{item.name}</h1>
+                    <p className="symbol-moneda">{item.symbol}</p>
+                    <img src={item.logo} alt={item.id} className="img-moneda" />
+                  </div>
+                  <p className="texto-description-moneda">{item.description}</p>
+                  <div className="container-links-moneda">
+                    <p className="sitio-web-moneda">
+                      Sitio web:{" "}
+                      <a
+                        href={item.urls.website}
+                        target="_blank"
+                        className="link-web"
+                      >
+                        <u>{item.name}.com</u>
                       </a>
-                      {/* <p>{item.cmc_rank}</p> */}
-                    </div>
+                    </p>
+                    <a href={item.urls.technical_doc}>
+                      <u className="txt-documentacion">Documentación</u>
+                    </a>
                   </div>
                 </div>
               </div>
