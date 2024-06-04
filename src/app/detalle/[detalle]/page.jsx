@@ -102,7 +102,7 @@ export default function Detalle(name) {
               </label>
             </div>
             {Object.values(dataP).map((item) => (
-              <div>
+              <div key={item.id}>
                 <div className="container-grafico">
                   <img
                     src="../img-user/img-grafico.jpeg"
