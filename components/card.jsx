@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./card.css";
 
-const Card = ({ searchResult, crypto }) => {
+const Card = ({ key, searchResult, crypto }) => {
   const [price, setPrice] = useState(null);
   const [id, setId] = useState(null);
 
@@ -41,7 +41,7 @@ const Card = ({ searchResult, crypto }) => {
   }, [searchResult, crypto]); // Ejecutar el efecto cuando searchResult o crypto cambien
   console.log(searchResult);
   return (
-    <div className="container-results">
+    <div className="container-results" key={key}>
       <h2 className="name-cripto">
         {searchResult ? searchResult.name : crypto}
       </h2>
