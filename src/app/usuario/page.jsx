@@ -22,7 +22,7 @@ const Usuario = () => {
   return (
     <>
       <NavSecundario />
-      <div className="cardd">
+      {/*   <div className="cardd">
         <div className="infos">
           <div className="image">
             <img src={user.picture} alt="User Profile" />
@@ -45,7 +45,7 @@ const Usuario = () => {
             Log Out
           </a>
         </button>
-      </div>
+      </div> */}
     </>
   );
 };
