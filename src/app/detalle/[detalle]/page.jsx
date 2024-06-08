@@ -6,12 +6,13 @@ import "./detalle.css";
 import { useStore } from "../../../../store";
 import NavSecundario from "../../../../components/nav-secundario";
 import { useUser } from "@auth0/nextjs-auth0/client";
-
+import { signIn, useSession } from "next-auth/react";
 export default function Detalle(name) {
   // Aquí puedes usar el parámetro name para recuperar los detalles relevantes del elemento
   const crypto = name.params.detalle;
   const { id } = useStore();
   const { error, isLoading, user } = useUser();
+  const { data: session } = useSession();
   console.log(id);
   const [isfav, setIsFav] = useState(false);
   const [dataL, setDataL] = useState({});
@@ -44,7 +45,7 @@ export default function Detalle(name) {
           favNames.length === 1 ? favNames[0] : favNames.join(", ");
 
         const response = await axios.put(
-          `https://wallet-back.vercel.app/users/${user.email}/favs`,
+          `https://wallet-back.vercel.app/users/${session.user.email}/favs`,
           {
             favs: favsString,
           }
@@ -65,7 +66,7 @@ export default function Detalle(name) {
           favNames.length === 1 ? favNames[0] : favNames.join(", ");
 
         const response = await axios.delete(
-          `https://wallet-back.vercel.app/users/${user.email}/favss`,
+          `https://wallet-back.vercel.app/users/${session.user.email}/favss`,
           {
             data: { element: favsString },
           }
