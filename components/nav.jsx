@@ -3,10 +3,12 @@ import React, { useState, useEffect } from "react";
 import "./nav.css";
 import Link from "next/link";
 import { useUser } from "@auth0/nextjs-auth0/client";
-
+import { signIn, useSession } from "next-auth/react";
 const Nav = () => {
   const { error, isLoading, user } = useUser();
   const [scrolled, setScrolled] = useState(false);
+  const { data: session } = useSession();
+  console.log(session);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,18 +79,18 @@ const Nav = () => {
 
         {/* Right: User Profile or Login Button */}
         <div className="nav-right">
-          {user ? (
+          {session ? (
             <Link href="/usuario">
               <img
-                src={user.picture}
+                src={session.user.image}
                 alt="User Profile"
                 className="user-profile-picture"
               />
             </Link>
           ) : (
-            <button className="login-button">
-              {" "}
-              <a href="/api/auth/login">Login</a>
+            <button className="login-button" onClick={() => signIn()}>
+              Loguin
+              {/* <a href="/api/auth/login">Login</a> */}
             </button>
           )}
         </div>

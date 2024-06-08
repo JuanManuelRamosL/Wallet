@@ -3,10 +3,11 @@ import React, { useState, useEffect } from "react";
 import "./nav.css";
 import Link from "next/link";
 import { useUser } from "@auth0/nextjs-auth0/client";
-
+import { signIn, useSession } from "next-auth/react";
 const NavSecundario = () => {
-  const { error, isLoading, user } = useUser();
+  // const { error, isLoading, user } = useUser();
   const [scrolled, setScrolled] = useState(false);
+  const { data: session } = useSession();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,7 +32,7 @@ const NavSecundario = () => {
       targetElement.scrollIntoView({ behavior: "smooth" });
     }
   };
-  console.log(user);
+
   return (
     <nav className="nav-header">
       <div className={`nav-container ${scrolled ? "scrolled" : ""}`}>
@@ -63,10 +64,10 @@ const NavSecundario = () => {
 
         {/* Right: User Profile or Login Button */}
         <div className="nav-right">
-          {user ? (
+          {session ? (
             <Link href="/usuario">
               <img
-                src={user.picture}
+                src={session.user.image}
                 alt="User Profile"
                 className="user-profile-picture"
               />

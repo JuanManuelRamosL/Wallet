@@ -4,7 +4,7 @@ import Header from "../../components/header";
 import Table from "../../components/tabla";
 import axios from "axios";
 import { useStore } from "../../store";
-
+import { signIn, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import Walets from "../../components/wallets";
 import Link from "next/link";
@@ -22,7 +22,9 @@ export default function Home() {
     setId,
     id,
   } = useStore();
-  const { error, isLoading, user } = useUser();
+
+  const { data: session } = useSession();
+  // const { error, isLoading, user } = useUser();
   const API = "https://wallet-back.vercel.app/map";
   useEffect(() => {
     const fetchData = async () => {
@@ -78,13 +80,13 @@ export default function Home() {
 
   const userAPI = "https://wallet-back.vercel.app/users";
   useEffect(() => {
-    if (user) {
+    if (session) {
       const createUser = async () => {
         try {
           const response = await axios.post(userAPI, {
-            first_name: user.nickname,
-            last_name: user.given_name,
-            email: user.email,
+            first_name: session.user.name,
+            last_name: session.user.name,
+            email: session.user.email,
             favs: [], // Puedes ajustar esto según tu aplicación
           });
           console.log("Usuario", response.data.id);
@@ -96,7 +98,7 @@ export default function Home() {
 
       createUser();
     }
-  }, [user]);
+  }, [session]);
   console.log(id); //no puedo guardar el id aun
   return (
     <>
