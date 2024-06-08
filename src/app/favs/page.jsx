@@ -11,7 +11,7 @@ export default function Favs() {
   const { error, isLoading, user } = useUser();
   const { data: session } = useSession();
   useEffect(() => {
-    if (user) {
+    if (session) {
       const email = session.user.email;
       const APIF = `https://wallet-back.vercel.app/users/${email}/favsList`;
 
