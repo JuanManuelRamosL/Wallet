@@ -4,15 +4,15 @@ import { useEffect, useState } from "react";
 import axios from "axios"; // Asegúrate de importar Axios
 import "./favs.css";
 import NavSecundario from "../../../components/nav-secundario";
-
+import { signIn, useSession } from "next-auth/react";
 export default function Favs() {
   const [favs, setFavs] = useState([]);
 
   const { error, isLoading, user } = useUser();
-
+  const { data: session } = useSession();
   useEffect(() => {
     if (user) {
-      const email = user.email;
+      const email = session.user.email;
       const APIF = `https://wallet-back.vercel.app/users/${email}/favsList`;
 
       const fetchData = async () => {
@@ -26,12 +26,12 @@ export default function Favs() {
 
       fetchData();
     }
-  }, [user]);
+  }, [session]);
 
   const handleDelete = async (item) => {
     try {
       const response = await axios.delete(
-        `https://wallet-back.vercel.app/users/${user.email}/favss`,
+        `https://wallet-back.vercel.app/users/${session.user.email}/favss`,
         {
           data: { element: item },
         }
@@ -50,14 +50,6 @@ export default function Favs() {
       console.error("Error al eliminar el favorito:", error);
     }
   };
-
-  if (isLoading) {
-    return <div>Cargando...</div>;
-  }
-
-  if (error) {
-    return <div>Error al cargar los datos del usuario</div>;
-  }
 
   return (
     <div>
