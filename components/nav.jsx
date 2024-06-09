@@ -93,6 +93,10 @@ const Nav = () => {
               {/* <a href="/api/auth/login">Login</a> */}
             </button>
           )}
+          <button className="login-button" onClick={() => signIn()}>
+            Loguin
+            {/* <a href="/api/auth/login">Login</a> */}
+          </button>
         </div>
       </div>
     </nav>
