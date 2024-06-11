@@ -43,6 +43,7 @@ export default function SignIn() {
         </form>
         {error && <p className="error-message">Error: {error}</p>}
         <button onClick={() => signIn("google")}>Sign in with Google</button>
+        <button onClick={() => signIn("github")}>Sign in with GitHub</button>
       </div>
     </div>
   );
