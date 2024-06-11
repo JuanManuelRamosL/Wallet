@@ -1,7 +1,11 @@
+/* Tabla.css */
+
+/* Estilos generales */
 .card-container {
   width: 100%;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .title {
@@ -24,7 +28,6 @@
   text-decoration: none;
   cursor: pointer;
   color: #000;
-  /* Añade cualquier estilo adicional que desees */
 }
 
 .item {
@@ -57,7 +60,6 @@
   color: #fff;
   cursor: pointer;
   font-weight: bold;
-  /* use position: relative; so that BG is only for .btn */
   position: relative;
   isolation: isolate;
   display: inline-grid;
@@ -68,12 +70,12 @@
   text-transform: uppercase;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
   clip-path: polygon(
-    /* Top-left */ 0% var(--curve-size),
+    0% var(--curve-size),
     var(--curve-size) 0,
-    /* top-right */ 100% 0,
+    100% 0,
     100% calc(100% - var(--curve-size)),
-    /* bottom-right 1 */ calc(100% - var(--curve-size)) 100%,
-    /* bottom-right 2 */ 0 100%
+    calc(100% - var(--curve-size)) 100%,
+    0 100%
   );
   transition: color 250ms;
 }
@@ -96,11 +98,9 @@
   0% {
     background-position: 31% 0%;
   }
-
   50% {
     background-position: 70% 100%;
   }
-
   100% {
     background-position: 31% 0%;
   }
@@ -110,33 +110,30 @@
   background: var(--bg);
   z-index: -1;
   clip-path: polygon(
-    /* Top-left */ var(--border-width)
+    var(--border-width)
       calc(var(--curve-size) + var(--border-width) * 0.5),
     calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
-    /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+    calc(100% - var(--border-width)) var(--border-width),
     calc(100% - var(--border-width))
       calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
-    /* bottom-right 1 */
-      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+    calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
       calc(100% - var(--border-width)),
-    /* bottom-right 2 */ var(--border-width) calc(100% - var(--border-width))
+    var(--border-width) calc(100% - var(--border-width))
   );
   transition: clip-path 500ms;
 }
 
 .btn:where(:hover, :focus)::after {
   clip-path: polygon(
-    /* Top-left */ calc(100% - var(--border-width))
-      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
-    calc(100% - var(--border-width)) var(--border-width),
-    /* top-right */ calc(100% - var(--border-width)) var(--border-width),
     calc(100% - var(--border-width))
       calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
-    /* bottom-right 1 */
-      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+    calc(100% - var(--border-width)) var(--border-width),
+    calc(100% - var(--border-width)) var(--border-width),
+    calc(100% - var(--border-width))
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
       calc(100% - var(--border-width)),
-    /* bottom-right 2 */
-      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+    calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
       calc(100% - var(--border-width))
   );
   transition: 200ms;
@@ -165,8 +162,7 @@
   margin: 10px;
   padding: 10px;
   border: 1px solid #673de6;
-  /* background-color: #1a1a1a; */
-  background: linear-gradient(to right,rgb(0, 0, 0),rgb(33, 25, 60));
+  background: linear-gradient(to right, rgb(0, 0, 0), rgb(33, 25, 60));
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
@@ -182,8 +178,6 @@
 .card:hover {
   background-color: #333333;
 }
-
-
 
 .skeleton-card {
   background-color: #f0f0f0;
@@ -219,70 +213,55 @@
   margin: 10px 0;
 }
 
-
-
-/* MEDIA QUERIES */
-
-.container {
-  margin-top: 170px;
-  padding: 20px; /* Añadido para mejorar el espaciado en pantallas pequeñas */
-}
-
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Cambiado para centrar las tarjetas */
-}
-
-.card {
-  width: calc(33.33% - 20px);
-  height: 130px;
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #673de6;
-  background: linear-gradient(to right, rgb(0, 0, 0), rgb(33, 25, 60));
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: 0.3s;
-}
-
-.card-content {
-  display: flex;
-  cursor: pointer;
-  text-decoration: none;
-  color: #fff;
-}
-
-.card:hover {
-  background-color: #333333;
-}
-
-@media (max-width: 1200px) {
-  .card {
-    width: calc(50% - 20px); /* Ajustar a 50% para pantallas medianas */
-  }
-}
-
-@media (max-width: 768px) {
-  .card {
-    width: calc(100% - 20px); /* Ajustar a 100% para pantallas pequeñas */
-  }
-  
-  .container {
-    margin-top: 100px; /* Reducir el margen superior */
-  }
-
+/* Estilos para pantallas pequeñas */
+@media screen and (max-width: 768px) {
   .title {
-    font-size: 28px; /* Reducir tamaño de la fuente */
+    font-size: 24px;
   }
 
-  .datos-cotizacion {
-    font-size: 15px; /* Reducir tamaño de la fuente */
+  .card {
+    width: calc(50% - 20px);
+    height: auto;
+    margin: 10px;
+    padding: 10px;
   }
 
   .item {
-    font-size: 15px; /* Reducir tamaño de la fuente */
+    font-size: 15px;
+  }
+
+  .datos-cotizacion {
+    font-size: 15px;
+  }
+
+  .btn {
+    font-size: 12px;
   }
 }
 
+/* Estilos para pantallas extra pequeñas */
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 20px;
+  }
 
+  .card {
+    width: calc(100% - 20px);
+    height: auto;
+    margin: 10px 0;
+    padding: 10px;
+  }
+
+  .item {
+    font-size: 14px;
+  }
+
+  .datos-cotizacion {
+    font-size: 14px;
+  }
+
+  .btn {
+    font-size: 11px;
+    padding: 0.3em 1em;
+  }
+}

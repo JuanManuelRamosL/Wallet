@@ -4,9 +4,12 @@ import "./nav.css";
 import Link from "next/link";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { signIn, useSession } from "next-auth/react";
+
+
 const Nav = () => {
   const { error, isLoading, user } = useUser();
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const { data: session } = useSession();
   console.log(session);
 
@@ -31,9 +34,14 @@ const Nav = () => {
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: "smooth" });
+      setMenuOpen(false); // Cierra el menú al hacer clic en un enlace
     }
   };
   console.log(user);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
   return (
     <nav className="nav-header">
       <div className={`nav-container ${scrolled ? "scrolled" : ""}`}>
@@ -46,8 +54,21 @@ const Nav = () => {
           />
         </div>
 
+        {/* Hamburger Menu for Mobile */}
+        <div className="hamburger-menu" onClick={toggleMenu}>
+          <svg viewBox="0 0 100 80" width="40" height="40" fill="white">
+            <rect width="100" height="10"></rect>
+            <rect y="30" width="100" height="10"></rect>
+            <rect y="60" width="100" height="10"></rect>
+          </svg>
+        </div>
+
+        <div className="container-title-app-mobile">
+          <h1 className="app-title">Wallet App</h1>
+        </div>
+
         {/* Center: Navigation Links */}
-        <div className="nav-center">
+        <div className={`nav-center ${menuOpen ? "open" : ""}`}>
           <Link href="/" legacyBehavior>
             <a className="nav-link">Inicio</a>
           </Link>

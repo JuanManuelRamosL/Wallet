@@ -1,5 +1,26 @@
+/* nav.css */
+
+/* Estilos generales */
 a {
   color: #fff;
+}
+
+.container-title-app-mobile {
+  display: none;
+}
+
+/* Estilos para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  .container-title-app-mobile {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    /* background-color: red; */
+  }
+
+  .app-title {
+    color: #fff;
+  }
 }
 
 .nav-header {
@@ -91,3 +112,71 @@ a {
   background-color: #5025d1;
 }
 
+/* Estilos para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    height: auto;
+  }
+
+  .nav-left, .nav-right {
+    display: none;
+  }
+
+  .nav-center {
+    flex-direction: column;
+    align-items: center;
+    /* gap: 10px; */
+    position: fixed;
+    top: 70px;
+    left: -150%;
+    width: 100%;
+    height: calc(100% - 70px);
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    padding: 20px;
+    transition: left 0.3s ease;
+  }
+
+  .nav-center.open {
+    left: -15px;
+  }
+
+  .nav-link {
+    font-size: 18px;
+    color: #fff;
+  }
+
+  .nav-link:hover {
+    color: #673de6;
+  }
+
+  .login-button {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.hamburger-menu svg {
+  position: relative;
+  top: 48px;
+  left: 100%;
+  width: 25px;
+  height: 25px;
+  fill: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger-menu {
+    display: flex;
+  }
+}

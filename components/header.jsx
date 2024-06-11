@@ -82,9 +82,11 @@ const Header = () => {
             ))}
           </ul>
         )}
-        <button onClick={() => handleLocalSearch()} className="button-buscar">
-          Buscar
-        </button>
+        <div className="container-button-buscar">
+          <button onClick={() => handleLocalSearch()} className="button-buscar">
+            Buscar
+          </button>
+        </div>
 
         {/* Conditional rendering of the search results */}
         {searchResult.length > 0 && searchResult.length < 2 ? (
@@ -92,7 +94,9 @@ const Header = () => {
             <Card key={result.id} searchResult={result} crypto={crypto} />
           ))
         ) : (
-          <p className="not-found"> No Hay Resultados</p>
+          <div className="container-sin-resultados">
+            <p className="not-found"> No Hay Resultados</p>
+          </div>
         )}
       </div>
 
