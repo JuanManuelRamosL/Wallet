@@ -1,24 +1,27 @@
 "use client";
 import { signIn } from "next-auth/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import "./signin.css"; // Importa el archivo CSS de estilos
 
 export default function SignIn() {
+  const [error, setError] = useState(null);
   const searchParams = useSearchParams();
-  const error = searchParams.get("error");
   const { register, handleSubmit } = useForm();
 
   useEffect(() => {
-    if (error) {
-      console.error("Authentication error:", error);
+    const errorParam = searchParams.get("error");
+    if (errorParam) {
+      console.error("Authentication error:", errorParam);
+      setError(errorParam);
     }
-  }, [error]);
+  }, [searchParams]);
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
   });
+
   return (
     <div className="container">
       <div className="signin-box">
@@ -39,7 +42,7 @@ export default function SignIn() {
             {...register("password", { required: true })}
             placeholder="Constraseña"
           />
-          <button>Registrar</button>
+          <button type="submit">Registrar</button>
         </form>
         {error && <p className="error-message">Error: {error}</p>}
         <button onClick={() => signIn("google")}>Sign in with Google</button>
