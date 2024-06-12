@@ -39,6 +39,10 @@ input {
   outline: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 .button-submit {
   --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
   --border-width: 0.125em;
