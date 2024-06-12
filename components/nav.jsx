@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { signIn, useSession } from "next-auth/react";
 
-
 const Nav = () => {
   const { error, isLoading, user } = useUser();
   const [scrolled, setScrolled] = useState(false);
@@ -37,11 +36,11 @@ const Nav = () => {
       setMenuOpen(false); // Cierra el menú al hacer clic en un enlace
     }
   };
-  console.log(user);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
   return (
     <nav className="nav-header">
       <div className={`nav-container ${scrolled ? "scrolled" : ""}`}>
@@ -54,6 +53,10 @@ const Nav = () => {
           />
         </div>
 
+        <div className="container-title-app-mobile">
+          <h1 className="app-title">Wallet App</h1>
+        </div>
+
         {/* Hamburger Menu for Mobile */}
         <div className="hamburger-menu" onClick={toggleMenu}>
           <svg viewBox="0 0 100 80" width="40" height="40" fill="white">
@@ -61,10 +64,6 @@ const Nav = () => {
             <rect y="30" width="100" height="10"></rect>
             <rect y="60" width="100" height="10"></rect>
           </svg>
-        </div>
-
-        <div className="container-title-app-mobile">
-          <h1 className="app-title">Wallet App</h1>
         </div>
 
         {/* Center: Navigation Links */}
@@ -111,12 +110,10 @@ const Nav = () => {
           ) : (
             <button className="login-button" onClick={() => signIn()}>
               Loguin
-              {/* <a href="/api/auth/login">Login</a> */}
             </button>
           )}
           <button className="login-button" onClick={() => signIn()}>
             Loguin
-            {/* <a href="/api/auth/login">Login</a> */}
           </button>
         </div>
       </div>

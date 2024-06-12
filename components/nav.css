@@ -1,26 +1,6 @@
-/* nav.css */
-
 /* Estilos generales */
 a {
   color: #fff;
-}
-
-.container-title-app-mobile {
-  display: none;
-}
-
-/* Estilos para pantallas pequeñas */
-@media screen and (max-width: 768px) {
-  .container-title-app-mobile {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    /* background-color: red; */
-  }
-
-  .app-title {
-    color: #fff;
-  }
 }
 
 .nav-header {
@@ -30,17 +10,19 @@ a {
   justify-content: center;
   align-items: center;
   color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .nav-container {
   width: 100%;
-  height: 70px;
+  height: auto;
   position: fixed;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.3);
-  transition: 0.3s;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 1.2s, height 1.2s;
   z-index: 100;
 }
 
@@ -49,14 +31,15 @@ a {
 }
 
 .nav-left {
-  flex: 1;
+  display: flex;
+  align-items: center;
 }
 
 .app-logo {
   width: 70px;
   height: 70px;
   margin-top: 5px;
-  margin-left: 20px;
+  margin-left: 30px;
   border-radius: 7px;
   filter: drop-shadow(0 0 10px rgba(103, 61, 230, 0.7));
 }
@@ -81,10 +64,10 @@ a {
 }
 
 .nav-right {
-  flex: 1;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  gap: 10px;
+  margin-right: 20px;
 }
 
 .user-profile-picture {
@@ -102,7 +85,6 @@ a {
   color: #000;
   background-color: #673de6;
   border: none;
-  margin-right: 30px;
   cursor: pointer;
   border-radius: 5px;
   transition: 0.2s;
@@ -112,25 +94,57 @@ a {
   background-color: #5025d1;
 }
 
+.app-title {
+  display: none;
+}
+
+.container-title-app-mobile {
+  display: none;
+}
+
 /* Estilos para pantallas pequeñas */
 @media screen and (max-width: 768px) {
+  .container-title-app-mobile {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+    margin-top: -72px;
+  }
+
+  .app-title {
+    display: block;
+    font-size: 1.5em;
+    color: white;
+  }
+
   .nav-container {
+    height: 50px;
     flex-direction: column;
     align-items: flex-start;
     padding: 10px;
-    height: auto;
   }
 
-  .nav-left, .nav-right {
-    display: none;
+  .nav-left {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -10px;
+  }
+
+  .nav-right {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
   }
 
   .nav-center {
     flex-direction: column;
     align-items: center;
-    /* gap: 10px; */
     position: fixed;
-    top: 70px;
+    top: 65px;
     left: -150%;
     width: 100%;
     height: calc(100% - 70px);
@@ -141,7 +155,7 @@ a {
   }
 
   .nav-center.open {
-    left: -15px;
+    left: 0;
   }
 
   .nav-link {
@@ -154,11 +168,15 @@ a {
   }
 
   .login-button {
-    width: 100%;
+    position: relative;
+    top: -75px;
+    right: 10px;
+    width: auto;
     font-size: 14px;
   }
 }
 
+/* Icono de menú hamburguesa */
 .hamburger-menu {
   display: none;
   flex-direction: column;
@@ -168,8 +186,8 @@ a {
 
 .hamburger-menu svg {
   position: relative;
-  top: 48px;
-  left: 100%;
+  top: -45px;
+  left: 10px;
   width: 25px;
   height: 25px;
   fill: #fff;
