@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 import "./signin.css"; // Importa el archivo CSS de estilos
 
 export default function SignIn() {
-  const [error, setError] = (useState < string) | (null > null);
   const searchParams = useSearchParams();
   const { register, handleSubmit } = useForm();
 
@@ -46,7 +45,7 @@ export default function SignIn() {
           />
           <button type="submit">Registrar</button>
         </form>
-        {error && <p className="error-message">Error: {error}</p>}
+
         <button onClick={() => signIn("google")}>Sign in with Google</button>
         <button onClick={() => signIn("github")}>Sign in with GitHub</button>
       </div>
