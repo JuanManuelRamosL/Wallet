@@ -6,6 +6,12 @@
   /* background-color: #050505; */
 }
 
+.flecha{
+color: #fff;
+text-decoration: none;
+font-size: 32px;
+
+}
 .signin-box {
   padding: 20px;
   border-radius: 8px;
@@ -152,6 +158,11 @@ button {
   border-radius: 8px;
   background-color: #fff;
   border: none;
+  transition: 0.3s;
+}
+
+.button-options-login:hover {
+background-color: #b9b9b9;
 }
 
 .svg-google {
