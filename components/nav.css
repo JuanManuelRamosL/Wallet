@@ -49,6 +49,7 @@ a {
   display: flex;
   justify-content: center;
   gap: 20px;
+  margin-left: 80px;
 }
 
 .nav-link {
@@ -146,6 +147,7 @@ a {
     position: fixed;
     top: 65px;
     left: -150%;
+    margin-left: -20px;
     width: 100%;
     height: calc(100% - 70px);
     background-color: rgba(0, 0, 0, 0.5);
