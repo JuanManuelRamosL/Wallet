@@ -6,15 +6,17 @@ import { useForm } from "react-hook-form";
 import "./signin.css"; // Importa el archivo CSS de estilos
 
 export default function SignIn() {
-  const [error, setError] = useState(null);
+  const [error, setError] = (useState < string) | (null > null);
   const searchParams = useSearchParams();
   const { register, handleSubmit } = useForm();
 
   useEffect(() => {
-    const errorParam = searchParams.get("error");
-    if (errorParam) {
-      console.error("Authentication error:", errorParam);
-      setError(errorParam);
+    if (typeof window !== "undefined") {
+      const errorParam = searchParams.get("error");
+      if (errorParam) {
+        console.error("Authentication error:", errorParam);
+        setError(errorParam);
+      }
     }
   }, [searchParams]);
 
@@ -40,7 +42,7 @@ export default function SignIn() {
           <input
             type="password"
             {...register("password", { required: true })}
-            placeholder="Constraseña"
+            placeholder="Contraseña"
           />
           <button type="submit">Registrar</button>
         </form>
