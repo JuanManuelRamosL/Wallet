@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import "./signin.css"; // Importa el archivo CSS de estilos
 import Link from "next/link";
+import axios from "axios";
 
 export default function SignIn() {
   const [error, setError] = useState(null);
@@ -19,9 +20,23 @@ export default function SignIn() {
       }
     }
   }, []);
-
-  const onSubmit = handleSubmit((data) => {
+  const userAPI = "https://wallet-back.vercel.app/usersForm";
+  const onSubmit = handleSubmit(async (data) => {
     console.log(data);
+    try {
+      const response = await axios.post(userAPI, {
+        nombre: data.username,
+        password: data.password,
+        email: data.email,
+        favs: "",
+      });
+
+      console.log("Usuario creado:", response.data);
+      // Maneja la respuesta de éxito aquí (por ejemplo, redirigir al usuario o mostrar un mensaje)
+    } catch (error) {
+      console.error("Error:", error);
+      // Maneja el error aquí (por ejemplo, mostrar un mensaje de error al usuario)
+    }
   });
 
   return (
