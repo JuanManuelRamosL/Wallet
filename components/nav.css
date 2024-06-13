@@ -137,8 +137,9 @@ a {
 
   .nav-right {
     display: flex;
-    justify-content: flex-end;
-    width: 100%;
+    justify-content: end;
+    width: 83%;
+    background-color: red;
   }
 
   .nav-center {
@@ -188,7 +189,7 @@ a {
 
 .hamburger-menu svg {
   position: relative;
-  top: -45px;
+  /* top: -45px; */
   left: 10px;
   width: 25px;
   height: 25px;
