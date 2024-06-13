@@ -42,9 +42,45 @@ const Nav = () => {
   };
 
   return (
-    <nav className="nav-header">
-      <div className={`nav-container ${scrolled ? "scrolled" : ""}`}>
-        {/* Left: App Logo */}
+    <nav>
+      <div className="container-left">
+        <svg viewBox="0 0 100 80" width="40" height="40" fill="white" className="svg-button-menu">
+          <rect width="100" height="10"></rect>
+          <rect y="30" width="100" height="10"></rect>
+          <rect y="60" width="100" height="10"></rect>
+        </svg>
+
+        <img
+          src="./img-user/app-logo.png"
+          alt="App Logo"
+          className="app-logo"
+        />
+      </div>
+
+      <div className="container-title">
+        <h1>Wallet App</h1>
+      </div>
+
+      <div className="container-right">
+        {session ? (
+          <Link href="/usuario">
+            <img
+              src={session.user.image}
+              alt="User Profile"
+              className="user-profile-picture"
+            />
+          </Link>
+        ) : (
+          <button className="login-button" onClick={() => signIn()}>
+            Loguin
+          </button>
+        )}
+        {/* <button className="login-button" onClick={() => signIn()}>
+          Loguin
+        </button> */}
+      </div>
+
+      {/* <div className={`nav-container ${scrolled ? "scrolled" : ""}`}>
         <div className="nav-left">
           <img
             src="./img-user/app-logo.png"
@@ -57,7 +93,6 @@ const Nav = () => {
           <h1 className="app-title">Wallet App</h1>
         </div>
 
-        {/* Hamburger Menu for Mobile */}
         <div className="hamburger-menu" onClick={toggleMenu}>
           <svg viewBox="0 0 100 80" width="40" height="40" fill="white">
             <rect width="100" height="10"></rect>
@@ -66,7 +101,6 @@ const Nav = () => {
           </svg>
         </div>
 
-        {/* Center: Navigation Links */}
         <div className={`nav-center ${menuOpen ? "open" : ""}`}>
           <Link href="/" legacyBehavior>
             <a className="nav-link">Inicio</a>
@@ -97,7 +131,6 @@ const Nav = () => {
           </a>
         </div>
 
-        {/* Right: User Profile or Login Button */}
         <div className="nav-right">
           {session ? (
             <Link href="/usuario">
@@ -116,7 +149,7 @@ const Nav = () => {
             Loguin
           </button>
         </div>
-      </div>
+      </div> */}
     </nav>
   );
 };

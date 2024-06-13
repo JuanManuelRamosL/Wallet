@@ -3,7 +3,60 @@ a {
   color: #fff;
 }
 
-.nav-header {
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: red;
+}
+
+.container-left {
+  display: flex;
+  align-items: center;
+  background-color: blue;
+}
+
+.app-logo {
+  width: 80px;
+}
+
+.svg-button-menu {
+  margin-left: 10px;
+}
+
+.container-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-right {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: yellow;
+}
+
+.login-button {
+  width: 90%;
+  height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  background-color: #673de6;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.login-button:hover {
+  background-color: #5025d1;
+}
+
+
+/* .nav-header {
   width: 100%;
   height: 70px;
   display: flex;
@@ -103,14 +156,12 @@ a {
   display: none;
 }
 
-/* Estilos para pantallas pequeñas */
 @media screen and (max-width: 768px) {
   .container-title-app-mobile {
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
-    /* background-color: blue; */
     margin-top: -72px;
   }
 
@@ -181,7 +232,6 @@ a {
   }
 }
 
-/* Icono de menú hamburguesa */
 .hamburger-menu {
   display: none;
   flex-direction: column;
@@ -202,4 +252,4 @@ a {
   .hamburger-menu {
     display: flex;
   }
-}
+} */
