@@ -14,7 +14,7 @@ const WalletSection = ({ className, title, text }) => {
   const isIzq = className.includes("container-izq");
   const animation = useSpring({
     opacity: inView ? 1 : 0,
-    transform: inView ? "translateX(-3%)" : "translateX(50%)", // Simplificar las animaciones
+    transform: inView ? "translateX(0%)" : "translateX(-50%)", // Simplificar las animaciones
   });
 
   return (
