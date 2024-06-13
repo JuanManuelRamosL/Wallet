@@ -42,46 +42,22 @@ const Nav = () => {
   };
 
   return (
-    <nav>
-      <div className="container-left">
-        <svg viewBox="0 0 100 80" width="40" height="40" fill="white" className="svg-button-menu">
-          <rect width="100" height="10"></rect>
-          <rect y="30" width="100" height="10"></rect>
-          <rect y="60" width="100" height="10"></rect>
-        </svg>
+    <>
+      <nav className={`nav ${scrolled ? "scrolled" : ""}`}>
+        <div className="container-left">
+          <svg
+            viewBox="0 0 100 80"
+            width="40"
+            height="40"
+            fill="white"
+            className="svg-button-menu"
+            onClick={toggleMenu}
+          >
+            <rect width="100" height="10"></rect>
+            <rect y="30" width="100" height="10"></rect>
+            <rect y="60" width="100" height="10"></rect>
+          </svg>
 
-        <img
-          src="./img-user/app-logo.png"
-          alt="App Logo"
-          className="app-logo"
-        />
-      </div>
-
-      <div className="container-title">
-        <h1>Wallet App</h1>
-      </div>
-
-      <div className="container-right">
-        {session ? (
-          <Link href="/usuario">
-            <img
-              src={session.user.image}
-              alt="User Profile"
-              className="user-profile-picture"
-            />
-          </Link>
-        ) : (
-          <button className="login-button" onClick={() => signIn()}>
-            Loguin
-          </button>
-        )}
-        {/* <button className="login-button" onClick={() => signIn()}>
-          Loguin
-        </button> */}
-      </div>
-
-      {/* <div className={`nav-container ${scrolled ? "scrolled" : ""}`}>
-        <div className="nav-left">
           <img
             src="./img-user/app-logo.png"
             alt="App Logo"
@@ -89,19 +65,29 @@ const Nav = () => {
           />
         </div>
 
-        <div className="container-title-app-mobile">
+        <div className="container-title">
           <h1 className="app-title">Wallet App</h1>
         </div>
 
-        <div className="hamburger-menu" onClick={toggleMenu}>
-          <svg viewBox="0 0 100 80" width="40" height="40" fill="white">
-            <rect width="100" height="10"></rect>
-            <rect y="30" width="100" height="10"></rect>
-            <rect y="60" width="100" height="10"></rect>
-          </svg>
+        <div className="container-right">
+          {session ? (
+            <Link href="/usuario">
+              <img
+                src={session.user.image}
+                alt="User Profile"
+                className="user-profile-picture"
+              />
+            </Link>
+          ) : (
+            <button className="login-button" onClick={() => signIn()}>
+              Loguin
+            </button>
+          )}
         </div>
+      </nav>
 
-        <div className={`nav-center ${menuOpen ? "open" : ""}`}>
+      <div className={`nav-container ${menuOpen ? "open" : ""}`}>
+        <div className="nav-center">
           <Link href="/" legacyBehavior>
             <a className="nav-link">Inicio</a>
           </Link>
@@ -130,27 +116,8 @@ const Nav = () => {
             Sobre Nosotros
           </a>
         </div>
-
-        <div className="nav-right">
-          {session ? (
-            <Link href="/usuario">
-              <img
-                src={session.user.image}
-                alt="User Profile"
-                className="user-profile-picture"
-              />
-            </Link>
-          ) : (
-            <button className="login-button" onClick={() => signIn()}>
-              Loguin
-            </button>
-          )}
-          <button className="login-button" onClick={() => signIn()}>
-            Loguin
-          </button>
-        </div>
-      </div> */}
-    </nav>
+      </div>
+    </>
   );
 };
 
