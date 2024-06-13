@@ -117,13 +117,13 @@ a {
   .app-title {
     display: block;
     font-size: 1.5em;
-    color: white;
+    color: #fff;
   }
 
   .nav-container {
     height: 50px;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 10px;
   }
 
@@ -138,7 +138,8 @@ a {
   .nav-right {
     display: flex;
     justify-content: end;
-    width: 83%;
+    width: 50%;
+    margin-left: 150px;
     background-color: red;
   }
 
@@ -189,8 +190,8 @@ a {
 
 .hamburger-menu svg {
   position: relative;
-  /* top: -45px; */
-  left: 10px;
+  top: -45px;
+  left: -210px;
   width: 25px;
   height: 25px;
   fill: #fff;

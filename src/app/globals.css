@@ -3,10 +3,10 @@ html {
 }
 
 body {
-  position: relative;
+  /* position: relative; */
   justify-content: center;
   align-items: center;
-  padding: 24px 5px;
+  /* padding: 24px 5px; */
   background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%);
   background-attachment: fixed;
 }
