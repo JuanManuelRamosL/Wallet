@@ -150,3 +150,8 @@ nav {
 .nav-link:hover {
   color: #673de6;
 }
+
+.user-profile-picture {
+  border-radius: 100%;
+  scale: 0.6;
+}
