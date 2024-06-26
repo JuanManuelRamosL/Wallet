@@ -80,9 +80,9 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <div>
-        <Header />
-      </div>
+      <input type="text" />
+      <Header />
+
       <Table data={data} />
       <Walets />
       <br />
