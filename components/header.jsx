@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import Card from "./card";
 import { useStore } from "../store";
@@ -10,7 +11,6 @@ const Header = () => {
   const [suggestions, setSuggestions] = useState([]);
   const { data, data2 } = useStore();
   const [count, setCount] = useState(0);
-  const [selectedResult, setSelectedResult] = useState(null);
 
   const handleLocalSearch = (searchTerm = crypto) => {
     const result = data?.filter((item) =>
@@ -58,7 +58,6 @@ const Header = () => {
 
   return (
     <header>
-      {/* Header content */}
       <div className="container-buscador">
         <input
           type="text"
@@ -70,7 +69,6 @@ const Header = () => {
           onBlur={handleBlur}
           className="buscador"
         />
-        {/* Suggestion list */}
         {suggestions.length > 0 && (
           <ul className="container-results-prev">
             {suggestions.map((suggestion) => (
@@ -90,7 +88,6 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Conditional rendering of the search results */}
         {searchResult.length > 0 && searchResult.length < 2 ? (
           searchResult.map((result) => (
             <Card key={result.id} searchResult={result} crypto={crypto} />
@@ -105,8 +102,6 @@ const Header = () => {
           </div>
         )}
       </div>
-
-      {/* Other header content */}
     </header>
   );
 };
