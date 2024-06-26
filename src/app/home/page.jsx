@@ -1,14 +1,14 @@
 "use client";
-import "./page-module.css";
-import Header from "../../components/header";
-import Table from "../../components/tabla";
+import "../page-module.css";
+import Header from "../../../components/header";
+import Table from "../../../components/tabla";
 import axios from "axios";
-import { useStore } from "../../store";
+import { useStore } from "../../../store";
 import { signIn, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
-import Walets from "../../components/wallets";
+import Walets from "../../../components/wallets";
 import Link from "next/link";
-import Nav from "../../components/nav";
+import Nav from "../../../components/nav";
 import { useUser } from "@auth0/nextjs-auth0/client";
 
 export default function Home() {
