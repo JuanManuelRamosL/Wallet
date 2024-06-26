@@ -12,7 +12,7 @@ import Nav from "../../components/nav";
 import { useUser } from "@auth0/nextjs-auth0/client";
 
 export default function Home() {
-  const {
+  /*   const {
     data,
     setData,
     setData2,
@@ -75,7 +75,7 @@ export default function Home() {
     }
   }, [session, setId]);
 
-  console.log(id); //no puedo guardar el id aun
+  console.log(id); //no puedo guardar el id aun */
 
   return (
     <>
@@ -83,7 +83,7 @@ export default function Home() {
       <div>
         <Header />
       </div>
-      <Table data={data} />
+      {/*   <Table data={data} />
       <Walets />
       <br />
       <div className="container-footer-wallets">
@@ -96,7 +96,7 @@ export default function Home() {
         <a href="/api/auth/login" className="links-footer-wallets">
           Logout
         </a>
-      </div>
+      </div> */}
     </>
   );
 }
