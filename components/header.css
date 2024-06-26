@@ -15,7 +15,7 @@ body {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	margin-top: 150px;
+	margin-top: 200px;
   }
   
   .container-buscador {
@@ -38,7 +38,8 @@ body {
 	margin-right: 15px;
 	outline: none;
 	color: #fff;
-	margin-bottom: 10px; /* Añadir espacio debajo del input */
+	margin-bottom: 10px;
+
   }
   
   .buscador::placeholder {
@@ -46,7 +47,7 @@ body {
   }
   
   .button-buscar {
-	font-size: 15px;
+	font-size: 19px;
 	font-weight: bold;
 	width: 200px; /* Ancho del 50% */
 	height: 40px;

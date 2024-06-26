@@ -5,10 +5,12 @@ import { useForm } from "react-hook-form";
 import "./signin.css"; // Importa el archivo CSS de estilos
 import Link from "next/link";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export default function SignIn() {
   const [error, setError] = useState(null);
   const { register, handleSubmit } = useForm();
+  const router = useRouter(); // Initialize useRouter
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -32,6 +34,7 @@ export default function SignIn() {
       });
 
       console.log("Usuario creado:", response.data);
+      router.push("/");
       // Maneja la respuesta de éxito aquí (por ejemplo, redirigir al usuario o mostrar un mensaje)
     } catch (error) {
       console.error("Error:", error);

@@ -33,7 +33,7 @@ const Nav = () => {
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: "smooth" });
-      setMenuOpen(false); // Cierra el menú al hacer clic en un enlace
+      setMenuOpen(false);
     }
   };
 

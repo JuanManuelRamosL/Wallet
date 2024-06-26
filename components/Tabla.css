@@ -1,6 +1,9 @@
-/* Tabla.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 170px;
+}
 
-/* Estilos generales */
 .card-container {
   width: 100%;
   display: flex;
@@ -145,10 +148,6 @@
 
 .fechas {
   color: #fff;
-}
-
-.container {
-  margin-top: 170px;
 }
 
 .card-container {

@@ -1,0 +1,154 @@
+a {
+	text-decoration: none;
+	color: #fff;
+  }
+  
+  nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 100;
+	/* background-color: red; */
+	background-color: rgba(0, 0, 0, 0.8);
+	backdrop-filter: blur(2px);
+  }
+  
+  .container-left {
+	display: flex;
+	align-items: center;
+	/* background-color: blue; */
+  }
+  
+  .app-logo {
+	width: 80px;
+  }
+  
+  .app-title {
+	color: #fff;
+  }
+  
+  .svg-button-menu {
+	margin-left: 10px;
+	cursor: pointer;
+	display: none; /* Escondido por defecto, se mostrará en móvil */
+  }
+  
+  .container-title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+  
+  .container-right {
+	width: 30%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* background-color: yellow; */
+  }
+  
+  .login-button {
+	width: 100px;
+	height: 40px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #000;
+	background-color: #673de6;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+	transition: 0.2s;
+  }
+  
+  .login-button:hover {
+	background-color: #5025d1;
+  }
+  
+  .nav-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: -10px;
+	/* left: -100%; */
+	width: 100%;
+	height: 100%;
+	/* background-color: rgba(0, 0, 0, 0.8); */
+	/* background-color: red; */
+	transition: left 0.3s ease;
+	z-index: 200;
+  }
+  
+  .nav-container.open {
+	left: 0;
+  }
+  
+  .nav-center {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 30px;
+	height: 100%;
+  }
+  
+  @media (min-width: 768px) {
+	.svg-button-menu {
+	  display: none;
+	}
+  
+	.container-title {
+	  display: none;
+	}
+  
+	.nav-center {
+	  display: flex;
+	  flex-direction: row;
+	  justify-content: center;
+	  align-items: center;
+	  height: auto;
+	}
+  }
+  
+  @media (max-width: 767px) {
+  
+	.svg-button-menu {
+	  display: block;
+	}
+  
+	.container-title {
+	  display: flex;
+	}
+  
+	.nav-container {
+	  top: 70px;
+	  background-color: rgba(0, 0, 0, 0.8);
+	  backdrop-filter: blur(2px);
+	}
+  
+	.nav-link {
+	  line-height: 50px;
+	}
+  }
+  
+  .nav-link {
+	font-size: 20px;
+	font-weight: bold;
+	color: #fff;
+	margin: 0 20px;
+	transition: 0.2s;
+  }
+  
+  .nav-link:hover {
+	color: #673de6;
+  }
+  
+  .user-profile-picture {
+	border-radius: 100%;
+	scale: 0.6;
+  }

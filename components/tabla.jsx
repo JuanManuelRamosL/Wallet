@@ -86,12 +86,12 @@ const Table = ({ data }) => {
                   <b className="fechas">{fechaFormateada2}</b>
                 </p>
                 <div className="container-detalles">
-                  <a
+                  <Link
                     href={`/detalle/${encodeURIComponent(item.name)}`}
                     className="btn"
                   >
                     Ver más detalles
-                  </a>
+                  </Link>
                 </div>
               </div>
             );

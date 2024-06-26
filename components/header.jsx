@@ -9,6 +9,7 @@ const Header = () => {
   const [searchResult, setSearchResult] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
   const { data, data2 } = useStore();
+  const [count, setCount] = useState(0);
   const [selectedResult, setSelectedResult] = useState(null);
 
   const handleLocalSearch = (searchTerm = crypto) => {
@@ -16,6 +17,7 @@ const Header = () => {
       item.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setSearchResult(result);
+    setCount(count + 1);
   };
 
   const handleInputChange = (e) => {
@@ -95,7 +97,11 @@ const Header = () => {
           ))
         ) : (
           <div className="container-sin-resultados">
-            <p className="not-found"> No Hay Resultados</p>
+            {count < 1 ? (
+              <p className="not-found"> realiza una busqueda</p>
+            ) : (
+              <p className="not-found"> No Hay Resultados</p>
+            )}
           </div>
         )}
       </div>
