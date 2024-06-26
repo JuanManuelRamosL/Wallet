@@ -10,6 +10,7 @@ import Walets from "../../components/wallets";
 import Link from "next/link";
 import Nav from "../../components/nav";
 import { useUser } from "@auth0/nextjs-auth0/client";
+
 export default function Home() {
   const {
     data,
@@ -24,61 +25,35 @@ export default function Home() {
   } = useStore();
 
   const { data: session } = useSession();
-  // const { error, isLoading, user } = useUser();
+
   const API = "https://wallet-back.vercel.app/map";
+  const API2 = "https://wallet-back.vercel.app/map2";
+  const API3 = "https://wallet-back.vercel.app/exchange";
+  const API4 = "https://wallet-back.vercel.app/map3";
+  const userAPI = "https://wallet-back.vercel.app/users";
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(API);
+        const [response, response2, response3, response4] = await Promise.all([
+          axios.get(API),
+          axios.get(API2),
+          axios.get(API3),
+          axios.get(API4),
+        ]);
+
         setData(response.data.data);
+        setData2(response2.data.data);
+        setData3(response3.data.data);
+        setData4(response4.data.data);
       } catch (error) {
         console.error("Error al obtener los datos:", error);
       }
     };
 
     fetchData();
-  }, []);
-  const API2 = "https://wallet-back.vercel.app/map2";
-  useEffect(() => {
-    const fetchData2 = async () => {
-      try {
-        const response2 = await axios.get(API2);
-        setData2(response2.data.data);
-      } catch (error) {
-        console.error("Error al obtener los datos:", error);
-      }
-    };
+  }, [setData, setData2, setData3, setData4]);
 
-    fetchData2();
-  }, []);
-
-  const API3 = "https://wallet-back.vercel.app/exchange";
-  useEffect(() => {
-    const fetchData3 = async () => {
-      try {
-        const response3 = await axios.get(API3);
-        setData3(response3.data.data);
-      } catch (error) {
-        console.error("Error al obtener los datos:", error);
-      }
-    };
-    fetchData3();
-  }, []);
-
-  const API4 = "https://wallet-back.vercel.app/map3";
-  useEffect(() => {
-    const fetchData4 = async () => {
-      try {
-        const response4 = await axios.get(API4);
-        setData4(response4.data.data);
-      } catch (error) {
-        console.error("Error al obtener los datos:", error);
-      }
-    };
-    fetchData4();
-  }, []);
-
-  const userAPI = "https://wallet-back.vercel.app/users";
   useEffect(() => {
     if (session) {
       const createUser = async () => {
@@ -98,17 +73,18 @@ export default function Home() {
 
       createUser();
     }
-  }, [session]);
+  }, [session, setId]);
+
   console.log(id); //no puedo guardar el id aun
+
   return (
     <>
-      <Nav></Nav>
+      <Nav />
       <div>
-        <Header></Header>
+        <Header />
       </div>
-
-      <Table data={data}></Table>
-      <Walets></Walets>
+      <Table data={data} />
+      <Walets />
       <br />
       <div className="container-footer-wallets">
         <Link href="/exchange" className="links-footer-wallets">
@@ -124,4 +100,5 @@ export default function Home() {
     </>
   );
 }
+
 //coment
