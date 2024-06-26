@@ -103,7 +103,9 @@ export default function Home() {
   return (
     <>
       <Nav></Nav>
-      <Header></Header>
+      <div>
+        <Header></Header>
+      </div>
 
       <Table data={data}></Table>
       <Walets></Walets>
