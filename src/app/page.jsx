@@ -105,7 +105,7 @@ export default function Home() {
     <>
       <Nav></Nav>
       {/* <Header></Header> */}
-      <Buscador></Buscador>
+      <Buscador />
 
       <Table data={data}></Table>
       <Walets></Walets>

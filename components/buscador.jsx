@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "./card";
 import { useStore } from "../store";
 import "./header.css";
@@ -11,6 +11,10 @@ const Buscador = () => {
   const [suggestions, setSuggestions] = useState([]);
   const { data, data2 } = useStore();
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // Aquí puedes agregar cualquier lógica que necesites ejecutar cuando se monte el componente
+  }, []); // Dependencias vacías para ejecutar solo una vez al montar
 
   const handleLocalSearch = (searchTerm = crypto) => {
     const result = data?.filter((item) =>
@@ -69,7 +73,6 @@ const Buscador = () => {
           onBlur={handleBlur}
           className="buscador"
         />
-        <input type="text" />
         {suggestions.length > 0 && (
           <ul className="container-results-prev">
             {suggestions.map((suggestion) => (
