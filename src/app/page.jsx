@@ -10,7 +10,6 @@ import Walets from "../../components/wallets";
 import Link from "next/link";
 import Nav from "../../components/nav";
 import { useUser } from "@auth0/nextjs-auth0/client";
-import Buscador from "../../components/buscador";
 export default function Home() {
   const {
     data,
@@ -104,8 +103,7 @@ export default function Home() {
   return (
     <>
       <Nav></Nav>
-      {/* <Header></Header> */}
-      <Buscador />
+      <Header></Header>
 
       <Table data={data}></Table>
       <Walets></Walets>

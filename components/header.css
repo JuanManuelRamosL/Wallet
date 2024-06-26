@@ -43,10 +43,7 @@ body {
 
   }
   
-  .buscadorr{
-	margin-top: 100px;
-  }
-
+  
   .buscador::placeholder {
 	color: #fff;
   }
