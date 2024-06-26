@@ -69,6 +69,7 @@ const Header = () => {
           onBlur={handleBlur}
           className="buscador"
         />
+        <input type="text" />
         {suggestions.length > 0 && (
           <ul className="container-results-prev">
             {suggestions.map((suggestion) => (
