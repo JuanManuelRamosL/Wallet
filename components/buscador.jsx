@@ -61,7 +61,7 @@ const Buscador = () => {
   };
 
   return (
-    <header>
+    /*   <header>
       <div className="container-buscador">
         <input
           type="text"
@@ -106,7 +106,17 @@ const Buscador = () => {
           </div>
         )}
       </div>
-    </header>
+    </header> */
+    <input
+      type="text"
+      value={crypto}
+      onChange={handleInputChange}
+      placeholder="Buscar Cripto"
+      onKeyDown={handleEnterPress}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      className="buscador"
+    />
   );
 };
 
