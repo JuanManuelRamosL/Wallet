@@ -7,7 +7,9 @@
   gap: 20px;
 }
 
-
+.inp{
+  margin-top: 100px;
+}
 .links-footer-wallets {
   font-size: 18px;
   font-weight: bold;

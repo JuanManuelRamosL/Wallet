@@ -80,7 +80,7 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <input type="text" />
+      <input type="text" className="inp" />
       <Header />
 
       <Table data={data} />
