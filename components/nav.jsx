@@ -111,13 +111,6 @@ const Nav = () => {
           <Link href="/favs" legacyBehavior>
             <a className="nav-link">Favoritos</a>
           </Link>
-          <a
-            href="#sobre-nosotros"
-            className="nav-link"
-            onClick={(e) => handleSmoothScroll(e, "sobre-nosotros")}
-          >
-            Sobre Nosotros
-          </a>
         </div>
       </div>
     </>
