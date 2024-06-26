@@ -69,7 +69,6 @@ const Header = () => {
           onBlur={handleBlur}
           className="buscador"
         />
-        <input type="text" />
         {suggestions.length > 0 && (
           <ul className="container-results-prev">
             {suggestions.map((suggestion) => (
@@ -96,7 +95,7 @@ const Header = () => {
         ) : (
           <div className="container-sin-resultados">
             {count < 1 ? (
-              <p className="not-found"> realiza una busqueda</p>
+              <p className="not-found"> </p>
             ) : (
               <p className="not-found"> No Hay Resultados</p>
             )}
