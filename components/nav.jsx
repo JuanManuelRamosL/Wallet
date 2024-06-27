@@ -83,9 +83,6 @@ const Nav = () => {
               Loguin
             </button>
           )}
-          <button className="login-button" onClick={() => signIn()}>
-            Loguin
-          </button>
         </div>
       </nav>
 

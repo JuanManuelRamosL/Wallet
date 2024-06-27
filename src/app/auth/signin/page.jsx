@@ -47,6 +47,7 @@ export default function SignIn() {
       <Link className="flecha" href="/">
         🡰
       </Link>
+      <Link href="/login">Login</Link>
       <div className="container">
         <div className="signin-box">
           <h2 className="title">Sign In</h2>

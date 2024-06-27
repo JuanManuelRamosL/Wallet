@@ -11,6 +11,8 @@ a {
 	left: 5px;
 	border-radius: 10px;
 	background: linear-gradient(to right,rgb(137, 104, 255),rgb(175, 152, 255));
+	margin-top: -50px;
+	margin-bottom: 50px;
 }
 
 .name-cripto {
