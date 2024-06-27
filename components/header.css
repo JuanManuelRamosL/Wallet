@@ -17,13 +17,16 @@ body {
 	align-items: center;
 	margin-top: 200px;
   }
+
+  .inp {
+	margin-top: 200px;
+  }
   
   .container-buscador {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 8px;
-	position: relative; /* Permitir posicionamiento absoluto de sugerencias */
 	flex-direction: column; /* Hacer que los elementos se apilen verticalmente */
   }
   
