@@ -66,7 +66,7 @@ const NavSecundario = () => {
           <h1 className="app-title">Wallet App</h1>
         </div>
 
-        <div className={`nav-container ${menuOpen ? "open" : ""}`}>
+        <div className={`nav-container-secundario ${menuOpen ? "open" : ""}`}>
           <div className="nav-center">
             <Link href="/" legacyBehavior>
               <a className="nav-link">Inicio</a>
