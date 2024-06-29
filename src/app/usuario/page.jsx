@@ -6,11 +6,27 @@ import "./usuario.css";
 import NavSecundario from "../../../components/nav-secundario";
 import { signIn, useSession, isLoading, error, signOut } from "next-auth/react";
 import { useStore } from "../../../store";
+import axios from "axios";
 
 const Usuario = () => {
   const { data: session } = useSession();
   const [menuVisible, setMenuVisible] = useState(false);
+  const [newPassword, setNewPassword] = useState("");
   const { user } = useStore();
+
+  const API_UPDATE = "https://wallet-back.vercel.app/update";
+  const update = async () => {
+    try {
+      const response = await axios.post(API_UPDATE, {
+        email: session?.user?.email || user?.email,
+        newPassword: newPassword,
+      });
+      console.log("actualizado", response.data);
+    } catch (error) {
+      console.error("Error al crear el usuario:", error);
+    }
+  };
+
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
   };
@@ -85,8 +101,10 @@ const Usuario = () => {
               type="password"
               className="input-password"
               placeholder="nueva contraseña"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
             />
-            <button className="button-cambiar-contraseña">
+            <button className="button-cambiar-contraseña" onClick={update}>
               Cambiar contraseña
             </button>
           </div>
