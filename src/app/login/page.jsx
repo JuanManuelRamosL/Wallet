@@ -4,11 +4,14 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useStore } from "../../../store";
 
 export default function Login() {
   const [error, setError] = useState(null);
   const { register, handleSubmit } = useForm();
   const router = useRouter();
+
+  const { setUser } = useStore();
 
   const onSubmit = handleSubmit(async (data) => {
     try {
@@ -21,6 +24,7 @@ export default function Login() {
       );
 
       if (response.status === 200 && response.data.message === "Aprobado") {
+        setUser(response.data.user);
         console.log("Login successful:", response.data.user);
         router.push("/");
       } else {

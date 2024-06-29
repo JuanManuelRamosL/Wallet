@@ -28,7 +28,10 @@ p {
 .img-user {
   border-radius: 100%;
 }
-
+.img-user2{
+  border-radius: 100%;
+  scale: 0.3;
+}
 .icon-edit-image-user {
   position: relative;
   top: 100px;

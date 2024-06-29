@@ -5,11 +5,12 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 import "./usuario.css";
 import NavSecundario from "../../../components/nav-secundario";
 import { signIn, useSession, isLoading, error, signOut } from "next-auth/react";
+import { useStore } from "../../../store";
 
 const Usuario = () => {
   const { data: session } = useSession();
   const [menuVisible, setMenuVisible] = useState(false);
-
+  const { user } = useStore();
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
   };
@@ -49,13 +50,23 @@ const Usuario = () => {
           />
         </svg>
         <div className="container-ui">
-          <img
-            src={session.user.image}
-            alt="User Profile"
-            className="img-user"
-          />
-          <p>{session.user.email}</p>
-          <h1>¡Hola, {session.user.name}</h1>
+          {session ? (
+            <>
+              <img
+                src={session.user.image}
+                alt="User Profile"
+                className="img-user"
+              />
+              <p>{session.user.email}</p>
+              <h1>¡Hola, {session.user.name}</h1>
+            </>
+          ) : (
+            <>
+              <img src="./user.png" alt="User Profile" className="img-user2" />
+              <p>{user.email}</p>
+              <h1>¡Hola, {user.first_name}</h1>
+            </>
+          )}
         </div>
 
         <div className="container-datos">

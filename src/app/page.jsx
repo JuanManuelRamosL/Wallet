@@ -22,6 +22,7 @@ export default function Home() {
     data4,
     setId,
     id,
+    user,
   } = useStore();
 
   const { data: session } = useSession();

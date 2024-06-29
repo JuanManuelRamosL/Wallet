@@ -4,13 +4,16 @@ import "./nav.css";
 import Link from "next/link";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { signIn, useSession } from "next-auth/react";
+import { useStore } from "../store";
 
 const Nav = () => {
-  const { error, isLoading, user } = useUser();
+  /* const { error, isLoading, user } = useUser(); */
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { data: session } = useSession();
+  const { user } = useStore();
   console.log(session);
+  console.log(user);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,11 +81,16 @@ const Nav = () => {
                 className="user-profile-picture"
               />
             </Link>
+          ) : user.id ? (
+            <img src="./user.png" alt="Other Image" className="other-image" />
           ) : (
             <button className="login-button" onClick={() => signIn()}>
-              Loguin
+              Login
             </button>
           )}
+          {/*   <button className="login-button" onClick={() => signIn()}>
+            Loguin
+          </button> */}
         </div>
       </nav>
 
