@@ -42,7 +42,7 @@ export default function Login() {
         🡰
       </Link>
 
-      <div className="container">
+      <div className="container-login">
         <div className="login-box">
           <h2 className="title">Login</h2>
           <form onSubmit={onSubmit}>

@@ -47,8 +47,10 @@ export default function SignIn() {
       <Link className="flecha" href="/">
         🡰
       </Link>
-      <Link href="/login">Login</Link>
-      <div className="container">
+      <Link href="/login">
+        <button className="buton-login">Login</button>
+      </Link>
+      <div className="container2">
         <div className="signin-box">
           <h2 className="title">Sign In</h2>
           <form onSubmit={onSubmit}>
