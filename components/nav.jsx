@@ -88,9 +88,9 @@ const Nav = () => {
               Login
             </button>
           )}
-          <button className="login-button" onClick={() => signIn()}>
+          {/*    <button className="login-button" onClick={() => signIn()}>
             Loguin
-          </button>
+          </button> */}
         </div>
       </nav>
 
