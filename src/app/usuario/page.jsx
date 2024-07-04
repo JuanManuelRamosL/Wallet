@@ -97,16 +97,20 @@ const Usuario = () => {
           <p className="txt-name">Nickname: {session.user.name}</p>
           <div className="password-user">
             <p className="txt-contraseña">Contraseña:</p>
-            <input
-              type="password"
-              className="input-password"
-              placeholder="nueva contraseña"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-            />
-            <button className="button-cambiar-contraseña" onClick={update}>
-              Cambiar contraseña
-            </button>
+            {session ? (
+              <>
+                <input
+                  type="password"
+                  className="input-password"
+                  placeholder="nueva contraseña"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                />
+                <button className="button-cambiar-contraseña" onClick={update}>
+                  Cambiar contraseña
+                </button>
+              </>
+            ) : null}
           </div>
         </div>
       </div>

@@ -116,6 +116,9 @@ const Nav = () => {
           <Link href="/favs" legacyBehavior>
             <a className="nav-link">Favoritos</a>
           </Link>
+          <Link href="/exchange" legacyBehavior>
+            <a className="nav-link">Wallets</a>
+          </Link>
         </div>
       </div>
     </>
